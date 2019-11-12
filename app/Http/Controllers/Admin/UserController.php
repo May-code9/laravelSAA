@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -14,11 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-      $allUsers = 'active';
       $getUsers = User::paginate(20);
-      //$search = User::search('Ma')->get();
-      //dd($search);
-      return view('admin.body.user.list',  compact('getUsers', 'allUsers'));
+
+      return view('admin.body.user.list',  compact('getUsers'));
     }
 
     /**
@@ -50,7 +49,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+      $getUser = User::findOrFail($id);
+
+      return view('admin.body.user.show',  compact('getUser'));
     }
 
     /**
@@ -61,7 +62,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+      $getUser = User::findOrFail($id);
+
+      return view('admin.body.user.edit',  compact('getUser'));
     }
 
     /**

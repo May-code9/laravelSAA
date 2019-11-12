@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Subscription;
 use App\User;
 
-class ActiveUserController extends Controller
+class InActiveUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,18 @@ class ActiveUserController extends Controller
      */
     public function index()
     {
-      $getSubscribedUsers = Subscription::join('users', 'users.id', '=', 'subscriptions.user_id')
-      ->select('first_name', 'last_name', 'phone', 'email', 'users.created_at', 'users.id')
-      ->paginate(20);
-      //dd($getSubscribedUsers);
+      $getAllUsers = User::pluck('id');
+      $collectAllUsers = collect($getAllUsers);
 
-      return view('admin.body.active-user.list',  compact('getSubscribedUsers'));
+      $getInActiveUsers = Subscription::join('users', 'users.id', '=', 'subscriptions.user_id')
+      ->select('first_name', 'last_name', 'phone', 'email', 'users.created_at', 'users.id', 'user_id')
+      ->pluck('user_id');
+      $collectInActiveUsers = collect($getInActiveUsers);
+      $differenceBtwActiveAndInActive = $collectAllUsers->diff($getInActiveUsers)->toArray();
+
+      $inactiveUsers = User::whereIn( 'id', $differenceBtwActiveAndInActive)->paginate(20);
+
+      return view('admin.body.inactive-user.list',  compact('inactiveUsers'));
     }
 
     /**
@@ -55,7 +61,7 @@ class ActiveUserController extends Controller
     {
       $getUser = User::findOrFail($id);
 
-      return view('admin.body.active-user.show',  compact('getUser'));
+      return view('admin.body.inactive-user.show',  compact('getUser'));
     }
 
     /**
@@ -68,7 +74,7 @@ class ActiveUserController extends Controller
     {
       $getUser = User::findOrFail($id);
 
-      return view('admin.body.active-user.edit',  compact('getUser'));
+      return view('admin.body.inactive-user.edit',  compact('getUser'));
     }
 
     /**

@@ -1,0 +1,90 @@
+@extends('admin.base')
+@section('title')
+Edit | {{ $getUser->first_name }} {{ $getUser->last_name }}
+@endsection
+
+@section('content')
+
+<div class="page-content">
+
+	<nav class="page-breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Forms</a></li>
+			<li class="breadcrumb-item active" aria-current="page">{{ $getUser->first_name }} {{ $getUser->last_name }}</li>
+		</ol>
+	</nav>
+
+	<div class="profile-page tx-13">
+		<div class="row">
+			<div class="col-12 grid-margin">
+				<div class="profile-header">
+					<div class="cover">
+						<div class="gray-shade"></div>
+						<figure>
+							<img src="{{asset('assets/images/profile-cover.jpg')}}" class="img-fluid" alt="profile cover">
+						</figure>
+						<div class="cover-body d-flex justify-content-between align-items-center">
+							<div>
+								<img class="profile-pic" src="{{asset('assets/images/faces/face1.jpg')}}" alt="profile">
+								<span class="profile-name">{{ $getUser->first_name }} {{ $getUser->last_name }}</span>
+							</div>
+							<div class="d-none d-md-block">
+								<button class="btn btn-primary btn-icon-text btn-edit-profile">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit btn-icon-prepend"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Edit profile
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="header-links">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 stretch-card">
+			<div class="card">
+				<div class="card-body">
+					<h6 class="card-title">InActive User | Edit User</h6>
+					<form>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label class="control-label">First Name</label>
+									<input type="text" class="form-control" placeholder="Enter first name" placeholder="Enter First Name" value="{{ $getUser->first_name }}">
+								</div>
+							</div><!-- Col -->
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label class="control-label">Last Name</label>
+									<input type="text" class="form-control" placeholder="Enter last name" placeholder="Enter Last Name" value="{{ $getUser->last_name }}">
+								</div>
+							</div><!-- Col -->
+						</div><!-- Row -->
+
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label class="control-label">Phone</label>
+									<input type="text" class="form-control" autocomplete="off" placeholder="Enter Phone Number" value="{{ $getUser->phone }}">
+								</div>
+							</div><!-- Col -->
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label class="control-label">Email address</label>
+									<input type="email" class="form-control" placeholder="Enter Email" value="{{ $getUser->email }}">
+								</div>
+							</div><!-- Col -->
+						</div><!-- Row -->
+					</form>
+					<button type="button" class="btn btn-primary submit">Submit form</button>
+					<a href="{{ route('users.index') }}" class="btn btn-primary submit" style="float: right">Back</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+@endsection

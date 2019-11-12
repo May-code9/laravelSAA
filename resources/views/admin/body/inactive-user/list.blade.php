@@ -1,6 +1,6 @@
 @extends('admin.base')
 @section('title')
-Active Users | List
+InActive Users | List
 @endsection
 @section('content')
 <div class="page-content">
@@ -8,7 +8,7 @@ Active Users | List
 	<nav class="page-breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Tables</a></li>
-			<li class="breadcrumb-item active" aria-current="page">All Users Table</li>
+			<li class="breadcrumb-item active" aria-current="page">InActive Users Table</li>
 		</ol>
 	</nav>
 
@@ -16,7 +16,7 @@ Active Users | List
 		<div class="col-md-12 grid-margin stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h6 class="card-title">Active Users table</h6>
+					<h6 class="card-title">InActive Users table</h6>
 					<p class="card-description">Total Number: <code>----</code></p>
 					<div class="table-responsive pt-3">
 						<table class="table table-bordered">
@@ -43,7 +43,7 @@ Active Users | List
 								</tr>
 							</thead>
 							<tbody>
-								@forelse($getSubscribedUsers as $getUser)
+								@forelse($inactiveUsers as $getUser)
 								<tr>
 									<td>
 										{{ $getUser->id }}
@@ -61,8 +61,8 @@ Active Users | List
 										{{ $getUser->created_at }}
 									</td>
 									<td>
-										<a href="/activeUsers/{{ $getUser->id }}/edit" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="edit"></i></a>
-										<a href="/activeUsers/{{ $getUser->id }}" class="btn btn-success btn-xs"><i class="link-icon" data-feather="eye"></i></a>
+										<a href="/unsubcribed/{{ $getUser->id }}/edit" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="edit"></i></a>
+										<a href="/unsubcribed/{{ $getUser->id }}" class="btn btn-success btn-xs"><i class="link-icon" data-feather="eye"></i></a>
 									</td>
 								</tr>
 								@empty
@@ -72,7 +72,7 @@ Active Users | List
 						</table>
 					</div>
 					<br>
-							{{ $getSubscribedUsers->links() }}
+							{{ $inactiveUsers->links() }}
 
 				</div>
 			</div>

@@ -20,43 +20,32 @@
       </li>
       <li class="nav-item nav-category">Users</li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#active" role="button" aria-expanded="false" aria-controls="emails">
+        <a class="nav-link" data-toggle="collapse" href="#all" role="button" aria-expanded="false" aria-controls="emails">
+          <i class="link-icon" data-feather="users"></i>
+          <span class="link-title">All Users</span>
+          <i class="link-arrow" data-feather="chevron-down"></i>
+        </a>
+        <div class="collapse" id="all">
+          <ul class="nav sub-menu">
+            <li class="nav-item">
+              <a href="{{ route('users.index') }}" class="nav-link">List</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Add</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('activeUsers.index') }}" class="nav-link">
           <i class="link-icon" data-feather="user-plus"></i>
           <span class="link-title">Active Users</span>
-          <i class="link-arrow" data-feather="chevron-down"></i>
         </a>
-        <div class="collapse" id="active">
-          <ul class="nav sub-menu">
-            <li class="nav-item">
-              <a href="{{ route('active_users.index') }}" class="nav-link">List</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Add</a>
-            </li>
-          </ul>
-        </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#inactive" role="button" aria-expanded="false" aria-controls="emails">
+        <a href="{{ route('unsubcribed.index') }}" class="nav-link">
           <i class="link-icon" data-feather="user-minus"></i>
-          <span class="link-title">Inactive Users</span>
-          <i class="link-arrow" data-feather="chevron-down"></i>
-        </a>
-        <div class="collapse" id="inactive">
-          <ul class="nav sub-menu">
-            <li class="nav-item">
-              <a href="#" class="nav-link">List</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Add</a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('users.index') }}" class="nav-link">
-          <i class="link-icon" data-feather="user-check"></i>
-          <span class="link-title">All Users</span>
+          <span class="link-title">InActive Users</span>
         </a>
       </li>
       <li class="nav-item nav-category">Transactions</li>

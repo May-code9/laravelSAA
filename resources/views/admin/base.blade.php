@@ -28,7 +28,7 @@
 
     <!-- partial:partials/_sidebar.html -->
     @include('admin.head.sidebar')
-    @include('admin.head.settings')
+    
     <div class="page-wrapper">
       <!-- partial:partials/_navbar.html -->
       @include('admin.head.header')

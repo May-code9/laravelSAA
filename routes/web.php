@@ -21,5 +21,6 @@ Route::post('/photo/show', ['as'=>'photo.store', 'uses'=>'PhotoController@store'
 Route::group(['middleware'=>'isAdmin'], function () {
   Route::get('/dashboard', ['as'=>'trade.dashboard', 'uses'=>'Admin\DashboardController@index']);
   Route::resource('/users', 'Admin\UserController');
-  Route::resource('/active_users', 'Admin\ActiveUserController');
+  Route::resource('/activeUsers', 'Admin\ActiveUserController');
+  Route::resource('/unsubcribed', 'Admin\InActiveUserController');
 });

@@ -61,8 +61,8 @@ Users | List
 										{{ $getUser->created_at }}
 									</td>
 									<td>
-										<a href="#" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="edit"></i></a>
-										<a href="#" class="btn btn-success btn-xs"><i class="link-icon" data-feather="eye"></i></a>
+										<a href="/users/{{ $getUser->id }}/edit" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="edit"></i></a>
+										<a href="/users/{{ $getUser->id }}" class="btn btn-success btn-xs"><i class="link-icon" data-feather="eye"></i></a>
 									</td>
 								</tr>
 								@empty
