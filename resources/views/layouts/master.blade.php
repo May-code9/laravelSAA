@@ -328,11 +328,20 @@ class='com_content view-category layout-theme3557category itemid-101 home j39 mm
                               {{ Auth::user()->first_name }} <span class="caret"></span>
                           </a>
                           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @if(checkAdmin() > 0)
                             <li itemprop='name'  data-id="331" style="display: inline;">
                               <a class="dropdown-item" href="{{ route('trade.dashboard') }}" >
                                   {{ __('Dashboard') }}
                               </a>
                             </li>
+                            @endif
+                            @if(checkPassport() == null)
+                            <li itemprop='name'  data-id="331" style="display: inline;">
+                              <a class="dropdown-item" href="{{ route('photo.show') }}" >
+                                  {{ __('Upload Passport') }}
+                              </a>
+                            </li>
+                            @endif
                             <li itemprop='name'  data-id="333" style="display: inline;">
                               <a class="dropdown-item" href="{{ route('logout') }}"
                                  onclick="event.preventDefault();

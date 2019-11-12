@@ -41,7 +41,7 @@
 										<span class="add-on">
 											<i class="fa fa-user hasTooltip" title="Email"></i>
 										</span>
-										<input type="email" name="email" id="email" value="" class="validate-email required" size="25" required aria-required="true" autofocus placeholder="Email" autocomplete="email">
+										<input type="email" name="email" id="email" value="" class="validate-email required @error('email') is-invalid @enderror" size="25" required aria-required="true" autofocus placeholder="Email" autocomplete="email">
 										@error('email')
 										<span class="invalid-feedback" role="alert">
 											<strong>{{ $message }}</strong>
@@ -56,7 +56,7 @@
 										<span class="add-on">
 											<i class="fa fa-lock hasTooltip" title="Password"></i>
 										</span>
-										<input type="password" name="password" id="password" value="" class="validate-password required" size="25" maxlength="99" required aria-required="true" placeholder="Password" autocomplete="current-password">
+										<input type="password" name="password" id="password" value="" class="validate-password required @error('password') is-invalid @enderror" size="25" maxlength="99" required aria-required="true" placeholder="Password" autocomplete="current-password">
 										@error('password')
 										<span class="invalid-feedback" role="alert">
 											<strong>{{ $message }}</strong>
