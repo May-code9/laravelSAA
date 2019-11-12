@@ -17,8 +17,16 @@ Users | List
 			<div class="card">
 				<div class="card-body">
 					<h6 class="card-title">All Users table</h6>
-					<p class="card-description">Total Number: <code>----</code></p>
+					<p class="card-description">Total Number: <code>{{allUsers()}}</code></p>
 					<div class="table-responsive pt-3">
+						@if(session('success_status'))
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<strong>{{ session('success_status') }}</strong>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						@endif
 						<table class="table table-bordered">
 							<thead>
 								<tr>

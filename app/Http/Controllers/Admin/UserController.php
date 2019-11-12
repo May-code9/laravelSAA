@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
@@ -76,7 +77,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $getUser = User::findOrFail($id);
+        $rule = [
+          'first_name' => ['required', 'string', 'max:255'],
+          'last_name' => ['required', 'string', 'max:255'],
+          'phone' => ['required', 'string', 'max:255'],
+        ];
+
+        $validator = Validator::make($request->all(), $rule);
+        if($validator->passes()) {
+          $getUser->update(['first_name'=>$request->first_name, 'last_name'=>$request->last_name,
+          'phone'=>$request->phone]);
+
+          return redirect('/users')->with('success_status', 'User Details Updated')->withInput();
+        }
     }
 
     /**

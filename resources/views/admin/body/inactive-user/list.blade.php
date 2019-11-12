@@ -17,7 +17,7 @@ InActive Users | List
 			<div class="card">
 				<div class="card-body">
 					<h6 class="card-title">InActive Users table</h6>
-					<p class="card-description">Total Number: <code>----</code></p>
+					<p class="card-description">Total Number: <code>{{inactiveUsers()}}</code></p>
 					<div class="table-responsive pt-3">
 						<table class="table table-bordered">
 							<thead>
