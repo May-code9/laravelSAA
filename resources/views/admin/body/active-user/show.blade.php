@@ -14,6 +14,31 @@ View | {{ $getUser->first_name }} {{ $getUser->last_name }}
 		</ol>
 	</nav>
 
+	<div class="profile-page tx-13">
+		<div class="row">
+			<div class="col-12 grid-margin">
+				<div class="profile-header">
+					<div class="cover">
+						<div class="gray-shade"></div>
+						<figure>
+							<img src="{{asset('assets/images/profile-cover.jpg')}}" class="img-fluid" alt="profile cover">
+						</figure>
+						<div class="cover-body d-flex justify-content-between align-items-center">
+							<div>
+								<img class="profile-pic" src="{{asset('passports/' . $getUser->passport)}}" alt="Profile Image Here">
+								<span class="profile-name">{{ $getUser->first_name }} {{ $getUser->last_name }}</span>
+							</div>
+
+						</div>
+					</div>
+					<div class="header-links">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="col-md-12 stretch-card">
 			<div class="card">
@@ -50,7 +75,7 @@ View | {{ $getUser->first_name }} {{ $getUser->last_name }}
 							</div><!-- Col -->
 						</div><!-- Row -->
 					</form>
-					
+
 					<a href="{{ route('activeUsers.index') }}" class="btn btn-primary submit" style="float: right">Back</a>
 				</div>
 			</div>

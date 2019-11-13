@@ -89,7 +89,7 @@ class UserController extends Controller
           $getUser->update(['first_name'=>$request->first_name, 'last_name'=>$request->last_name,
           'phone'=>$request->phone]);
 
-          return redirect('/users')->with('success_status', 'User Details Updated')->withInput();
+          return redirect('/users')->with('success_status', 'User Details Updated');
         }
     }
 
