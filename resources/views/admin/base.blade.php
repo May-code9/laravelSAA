@@ -62,7 +62,7 @@
   <!-- end custom js for this page -->
   @endif
 
-  @if(Route::currentRouteName() == 'users.create')
+  @if(Route::currentRouteName() == 'users.create' || Route::currentRouteName() == 'imageEdit.edit')
   <script type="text/javascript">
   jQuery(function($) {
     $(document).ready(function() {
@@ -85,7 +85,17 @@
     });
   })
   </script>
+
   @endif
+
+  <script type="text/javascript">
+      $(document).ready(function () {
+        var width = $('#passportCover').width();
+        
+        width = width - (width/1.3);
+        $('.profile-pic').css({'width': width, 'height': 'auto'});
+      })
+  </script>
   <!-- inject:js -->
   <script src="{{asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
   <script src="{{asset('assets/js/template.js')}}"></script>

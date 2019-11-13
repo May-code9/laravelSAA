@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
+use Image;
 
 class ImageEditorController extends Controller
 {
@@ -46,7 +49,7 @@ class ImageEditorController extends Controller
      */
     public function show($id)
     {
-        //
+         //
     }
 
     /**
@@ -57,7 +60,8 @@ class ImageEditorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $getUser = User::findOrFail($id);
+        return view('admin.body.passport.edit', compact('getUser'));
     }
 
     /**
@@ -69,7 +73,28 @@ class ImageEditorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $rule = [
+        'passport' => 'required|mimes:jpeg,png|max:4000',
+      ];
+
+      $validator = Validator::make($request->all(), $rule);
+      if($validator->passes()) {
+        $imageFile = $request->file('passport');
+        $imageName = time().'.'.$imageFile->getClientOriginalExtension();
+
+        $destinationPath = public_path('/passports');
+        Image::make($imageFile->getRealPath())->save($destinationPath.'/'.$imageName);
+
+        $passport = User::findOrFail($id);
+        $passport->update(['passport' => $imageName]);
+
+        $first_name = $passport->first_name;
+        $last_name = $passport->last_name;
+
+        return redirect('/users')->with('success_status', $first_name . ' ' . $last_name . " 's Image Uploaded Successfully");
+      } else {
+        return back()->withErrors($validator)->withInput();
+      }
     }
 
     /**

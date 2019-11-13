@@ -23,4 +23,5 @@ Route::group(['middleware'=>'isAdmin'], function () {
   Route::resource('/users', 'Admin\UserController');
   Route::resource('/activeUsers', 'Admin\ActiveUserController');
   Route::resource('/unsubcribed', 'Admin\InActiveUserController');
+  Route::resource('/imageEdit', 'Admin\ImageEditorController');
 });

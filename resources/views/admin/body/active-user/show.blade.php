@@ -17,7 +17,7 @@ View | {{ $getUser->first_name }} {{ $getUser->last_name }}
 	<div class="profile-page tx-13">
 		<div class="row">
 			<div class="col-12 grid-margin">
-				<div class="profile-header">
+				<div class="profile-header" id="passportCover">
 					<div class="cover">
 						<div class="gray-shade"></div>
 						<figure>
@@ -25,7 +25,7 @@ View | {{ $getUser->first_name }} {{ $getUser->last_name }}
 						</figure>
 						<div class="cover-body d-flex justify-content-between align-items-center">
 							<div>
-								<img class="profile-pic" src="{{asset('passports/' . $getUser->passport)}}" alt="Profile Image Here">
+								<img class="profile-pic" src="{{asset('passports/' . $getUser->passport)}}" alt="No Image Yet">
 								<span class="profile-name">{{ $getUser->first_name }} {{ $getUser->last_name }}</span>
 							</div>
 
