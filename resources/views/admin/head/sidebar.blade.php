@@ -50,7 +50,7 @@
       </li>
       <li class="nav-item nav-category">Subscribers</li>
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('all.subscriber') }}" class="nav-link">
           <i class="link-icon" data-feather="align-justify"></i>
           <span class="link-title">Active Subscribers</span>
         </a>

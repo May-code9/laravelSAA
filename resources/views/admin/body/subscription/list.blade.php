@@ -1,6 +1,6 @@
 @extends('admin.base')
 @section('title')
-Users | List
+Active Subscribers | List
 @endsection
 @section('content')
 <div class="page-content">
@@ -8,7 +8,7 @@ Users | List
 	<nav class="page-breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Tables</a></li>
-			<li class="breadcrumb-item active" aria-current="page">All Users Table</li>
+			<li class="breadcrumb-item active" aria-current="page">Active Subscribers</li>
 		</ol>
 	</nav>
 
@@ -16,8 +16,8 @@ Users | List
 		<div class="col-md-12 grid-margin stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h6 class="card-title">All Users table</h6>
-					<p class="card-description">Total Number: <code>{{allUsers()}}</code></p>
+					<h6 class="card-title">Active Subscribers table</h6>
+					<p class="card-description">Total Number: <code>{{activeUsers()}}</code></p>
 					<div class="table-responsive pt-3">
 						@if(session('success_status'))
 						<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -51,7 +51,7 @@ Users | List
 								</tr>
 							</thead>
 							<tbody>
-								@forelse($getUsers as $getUser)
+								@forelse($getSubscribedUsers as $getUser)
 								<tr>
 									<td>
 										{{ $getUser->id }}
@@ -70,7 +70,7 @@ Users | List
 									</td>
 									<td>
 										<a href="/users/{{ $getUser->id }}/edit" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="edit"></i></a>
-										<a href="/users/{{ $getUser->id }}" class="btn btn-success btn-xs"><i class="link-icon" data-feather="eye"></i></a>
+										<a href="/view/subscriber/{{ $getUser->id }}" class="btn btn-success btn-xs"><i class="link-icon" data-feather="eye"></i></a>
 									</td>
 								</tr>
 								@empty
@@ -80,7 +80,7 @@ Users | List
 						</table>
 					</div>
 					<br>
-							{{ $getUsers->links() }}
+							{{ $getSubscribedUsers->links() }}
 
 				</div>
 			</div>

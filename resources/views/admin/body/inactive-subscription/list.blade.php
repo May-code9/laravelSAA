@@ -72,7 +72,6 @@ InActive Subscribers | List
 									</td>
 									<td>
 										<a href="/add/subscriber/{{ $getUser->id }}" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="dollar-sign"></i></a>
-										<a href="#" class="btn btn-success btn-xs"><i class="link-icon" data-feather="eye"></i></a>
 									</td>
 								</tr>
 								@empty

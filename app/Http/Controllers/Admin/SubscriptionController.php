@@ -9,14 +9,28 @@ use App\User;
 
 class SubscriptionController extends Controller
 {
-  public function index()
+  public function view_subscriber($id)
   {
-    //
+    $getUser = Subscription::join('users', 'users.id', '=', 'subscriptions.user_id')
+    ->where('users.id', $id)
+    ->select('session', 'users.id', 'first_name', 'last_name', 'capital', 'timeline', 'subscription_month', 'subscription_cost')
+    ->get()->last();
+    return view('admin.body.subscription.show', compact('getUser'));
   }
 
-  public function create()
+  public function all_subscribers()
   {
-    return view('admin.body.subscription.add');
+    $getSubscribedUsers = Subscription::join('users', 'users.id', '=', 'subscriptions.user_id')
+    ->select('first_name', 'last_name', 'phone', 'email', 'users.created_at', 'users.id')
+    ->paginate(20);
+
+    return view('admin.body.subscription.list',  compact('getSubscribedUsers'));
+  }
+
+  public function create($id)
+  {
+    $getUser = User::where('id', $id)->get()->last();
+    return view('admin.body.subscription.add', compact('getUser'));
   }
 
   public function add_subscriber(Request $request, $id)

@@ -19,8 +19,16 @@ Add | Subscription
 			<div class="card">
 				<div class="card-body">
 					<h6 class="card-title">Subscription | Add Subscription</h6>
-					<form action="#" method="POST">
+					<form action="/add/subscriber/{{ $getUser->id }}" method="POST">
 						@csrf
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<h5>{{ $getUser->first_name }} {{ $getUser->last_name }}</h5>
+								</div>
+							</div>
+						</div>
 
 						<div class="row">
 							<div class="col-sm-6">
@@ -106,7 +114,7 @@ Add | Subscription
 						</div><!-- Row -->
 
 						<input type="submit" class="btn btn-primary submit" value="Submit">
-						<a href="#" class="btn btn-primary submit" style="float: right">Back</a>
+						<a href="{{ route('unpaid.index') }}" class="btn btn-primary submit" style="float: right">Back</a>
 					</form>
 				</div>
 			</div>

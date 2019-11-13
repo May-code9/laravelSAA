@@ -1,6 +1,6 @@
 @extends('admin.base')
 @section('title')
-View | {{ $getUser->first_name }} {{ $getUser->last_name }}
+View | Subscription
 @endsection
 
 @section('content')
@@ -10,73 +10,64 @@ View | {{ $getUser->first_name }} {{ $getUser->last_name }}
 	<nav class="page-breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Forms</a></li>
-			<li class="breadcrumb-item active" aria-current="page">{{ $getUser->first_name }} {{ $getUser->last_name }}</li>
+			<li class="breadcrumb-item active" aria-current="page">View Subscription</li>
 		</ol>
 	</nav>
-
-	<div class="profile-page tx-13">
-		<div class="row">
-			<div class="col-12 grid-margin">
-				<div class="profile-header" id="passportCover">
-					<div class="cover">
-						<div class="gray-shade"></div>
-						<figure>
-							<img src="{{asset('assets/images/profile-cover.jpg')}}" class="img-fluid" alt="profile cover">
-						</figure>
-						<div class="cover-body d-flex justify-content-between align-items-center">
-							<div>
-								<img class="profile-pic" src="{{asset('passports/' . $getUser->passport)}}" alt="No Image Yet">
-								<span class="profile-name">{{ $getUser->first_name }} {{ $getUser->last_name }}</span>
-							</div>
-
-						</div>
-					</div>
-					<div class="header-links">
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<div class="row">
 		<div class="col-md-12 stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h6 class="card-title">All Users | View Details</h6>
-					<form>
+					<h6 class="card-title">Subscription | View Subscription</h6>
+					<form action="#" method="POST">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<h5>{{ $getUser->first_name }} {{ $getUser->last_name }}</h5>
+								</div>
+							</div>
+						</div>
+
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
-									<label class="control-label">First Name</label>
-									<input type="text" class="form-control" placeholder="Enter first name" value="{{ $getUser->first_name }}" disabled>
+									<label class="control-label">Preferred Session</label>
+									<input type="text" class="form-control" value="{{ $getUser->session }} session" disabled>
 								</div>
 							</div><!-- Col -->
 							<div class="col-sm-6">
 								<div class="form-group">
-									<label class="control-label">Last Name</label>
-									<input type="text" class="form-control" placeholder="Enter last name" value="{{ $getUser->last_name }}" disabled>
+									<label class="control-label">Estimated Start Up Capital</label>
+									<input id="capital" type="number" class="form-control" value="{{ $getUser->capital }}" disabled>
+
 								</div>
 							</div><!-- Col -->
 						</div><!-- Row -->
 
 						<div class="row">
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<div class="form-group">
-									<label class="control-label">Phone</label>
-									<input type="text" class="form-control" autocomplete="off" value="{{ $getUser->phone }}" disabled>
+									<label class="control-label">Number of Months</label>
+									<input type="text" class="form-control" value="{{ $getUser->timeline }} Month(s)" disabled>
 								</div>
 							</div><!-- Col -->
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<div class="form-group">
-									<label class="control-label">Email address</label>
-									<input type="email" class="form-control" value="{{ $getUser->email }}" disabled>
+									<label class="control-label">Subscription Month</label>
+									<input type="text" class="form-control" value="{{ $getUser->subscription_month }}" disabled>
+								</div>
+							</div><!-- Col -->
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label class="control-label">Subscription Cost</label>
+									<input type="text" class="form-control" value="{{ $getUser->subscription_cost }}" disabled>
 								</div>
 							</div><!-- Col -->
 						</div><!-- Row -->
+
+						<input type="submit" class="btn btn-primary submit" value="Submit">
+						<a href="{{ route('all.subscriber') }}" class="btn btn-primary submit" style="float: right">Back</a>
 					</form>
-
-					<a href="{{ route('users.index') }}" class="btn btn-primary submit" style="float: right">Back</a>
 				</div>
 			</div>
 		</div>
