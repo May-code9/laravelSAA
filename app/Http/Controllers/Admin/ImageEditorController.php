@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Subscription;
-use App\User;
 
-class ActiveUserController extends Controller
+class ImageEditorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +14,7 @@ class ActiveUserController extends Controller
      */
     public function index()
     {
-      $getSubscribedUsers = Subscription::join('users', 'users.id', '=', 'subscriptions.user_id')
-      ->select('first_name', 'last_name', 'phone', 'email', 'users.created_at', 'users.id')
-      ->paginate(20);
-      //dd($getSubscribedUsers);
-
-      return view('admin.body.active-user.list',  compact('getSubscribedUsers'));
+        //
     }
 
     /**
@@ -54,9 +46,7 @@ class ActiveUserController extends Controller
      */
     public function show($id)
     {
-      $getUser = User::findOrFail($id);
-
-      return view('admin.body.active-user.show',  compact('getUser'));
+        //
     }
 
     /**
@@ -67,9 +57,7 @@ class ActiveUserController extends Controller
      */
     public function edit($id)
     {
-      $getUser = User::findOrFail($id);
-
-      return view('admin.body.active-user.edit',  compact('getUser'));
+        //
     }
 
     /**
@@ -81,20 +69,7 @@ class ActiveUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $getUser = User::findOrFail($id);
-      $rule = [
-        'first_name' => ['required', 'string', 'max:255'],
-        'last_name' => ['required', 'string', 'max:255'],
-        'phone' => ['required', 'string', 'max:255'],
-      ];
-
-      $validator = Validator::make($request->all(), $rule);
-      if($validator->passes()) {
-        $getUser->update(['first_name'=>$request->first_name, 'last_name'=>$request->last_name,
-        'phone'=>$request->phone]);
-
-        return redirect('/activeUsers')->with('success_status', $request->first_name . " " . $request->last_name . "'s Details has been Updated");
-      }
+        //
     }
 
     /**

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
+use Image;
 
 class UserController extends Controller
 {
@@ -28,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.body.user.add');
     }
 
     /**
@@ -39,7 +41,32 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rule = [
+          'first_name' => 'required', 'string', 'max:255',
+          'last_name' => 'required', 'string', 'max:255',
+          'phone' => 'required', 'string', 'max:255',
+          'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
+          'password' => 'required', 'string', 'min:8', 'confirmed',
+          'passport' => 'required|mimes:jpeg,png|max:4000',
+        ];
+
+        $validator = Validator::make($request->all(), $rule);
+        if($validator->passes()) {
+            $imageFile = $request->file('passport');
+            $imageName = time().'.'.$imageFile->getClientOriginalExtension();
+
+            $destinationPath = public_path('/passports');
+            Image::make($imageFile->getRealPath())->save($destinationPath.'/'.$imageName);
+
+            $newUser = $request->all();
+            $newUser['passport'] = $imageName;
+            $newUser['password'] = Hash::make($request->password);
+            User::create($newUser);
+
+            return redirect('/users')->with('success_status', 'New User ' . $request->first_name . ' ' . $request->last_name . ' has been added' );
+        } else {
+          return back()->withErrors($validator)->withInput();
+        }
     }
 
     /**
@@ -89,7 +116,7 @@ class UserController extends Controller
           $getUser->update(['first_name'=>$request->first_name, 'last_name'=>$request->last_name,
           'phone'=>$request->phone]);
 
-          return redirect('/users')->with('success_status', 'User Details Updated');
+          return redirect('/users')->with('success_status', $request->first_name . " " . $request->last_name . "'s Details has been Updated");
         }
     }
 

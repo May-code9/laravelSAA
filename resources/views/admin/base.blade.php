@@ -28,7 +28,7 @@
 
     <!-- partial:partials/_sidebar.html -->
     @include('admin.head.sidebar')
-    
+
     <div class="page-wrapper">
       <!-- partial:partials/_navbar.html -->
       @include('admin.head.header')
@@ -61,12 +61,35 @@
   <script src="{{asset('assets/js/datepicker.js')}}"></script>
   <!-- end custom js for this page -->
   @endif
+
+  @if(Route::currentRouteName() == 'users.create')
+  <script type="text/javascript">
+  jQuery(function($) {
+    $(document).ready(function() {
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function(e) {
+            $('#blah').attr('src', e.target.result);
+          }
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+      $("#passport").change(function() {
+        $("#blah").slideDown(3000);
+        readURL(this);
+      });
+    });
+  })
+  </script>
+  @endif
   <!-- inject:js -->
   <script src="{{asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
   <script src="{{asset('assets/js/template.js')}}"></script>
   <!-- endinject -->
 
 </body>
-
-<!-- Mirrored from www.nobleui.com/html/template/demo_1/dashboard-one.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Nov 2019 01:38:22 GMT -->
 </html>

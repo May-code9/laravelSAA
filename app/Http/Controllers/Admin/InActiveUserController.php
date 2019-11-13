@@ -99,7 +99,7 @@ class InActiveUserController extends Controller
         $getUser->update(['first_name'=>$request->first_name, 'last_name'=>$request->last_name,
         'phone'=>$request->phone]);
 
-        return redirect('/unsubcribed')->with('success_status', 'User Details Updated');
+        return redirect('/unsubcribed')->with('success_status', $request->first_name . " " . $request->last_name . "'s Details has been Updated");
       }
     }
 
