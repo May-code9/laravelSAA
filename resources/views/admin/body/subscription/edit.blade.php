@@ -50,8 +50,9 @@ Edit | {{ $getUser->first_name }} {{ $getUser->last_name }}
 			<div class="card">
 				<div class="card-body">
 					<h6 class="card-title">All Users | Edit User</h6>
-					<form action="/editUsers/{{ $getUser->id }}" method="POST">
-						@csrf
+					<form action="/users/{{ $getUser->id }}" method="POST">
+						{{ method_field('PUT') }}
+            {{ csrf_field() }}
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
@@ -82,7 +83,7 @@ Edit | {{ $getUser->first_name }} {{ $getUser->last_name }}
 							</div><!-- Col -->
 						</div><!-- Row -->
 						<input type="submit" class="btn btn-primary submit" value="Submit">
-						<a href="{{ route('all.users') }}" class="btn btn-primary submit" style="float: right">Back</a>
+						<a href="{{ route('users.index') }}" class="btn btn-primary submit" style="float: right">Back</a>
 					</form>
 				</div>
 			</div>

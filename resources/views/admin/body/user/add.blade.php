@@ -19,7 +19,7 @@ Add | User
 			<div class="card">
 				<div class="card-body">
 					<h6 class="card-title">Users | Add User</h6>
-					<form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
+					<form action="{{ route('add.users') }}" method="POST" enctype="multipart/form-data">
 						@csrf
 						<div class="row">
 							<div class="col-sm-6">
@@ -97,7 +97,7 @@ Add | User
 							</div><!-- Col -->
 						</div>
 						<input type="submit" class="btn btn-primary submit" value="Submit">
-						<a href="{{ route('users.index') }}" class="btn btn-primary submit" style="float: right">Back</a>
+						<a href="{{ route('all.users') }}" class="btn btn-primary submit" style="float: right">Back</a>
 					</form>
 				</div>
 			</div>

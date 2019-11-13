@@ -76,7 +76,7 @@ View | {{ $getUser->first_name }} {{ $getUser->last_name }}
 						</div><!-- Row -->
 					</form>
 
-					<a href="{{ route('users.index') }}" class="btn btn-primary submit" style="float: right">Back</a>
+					<a href="{{ route('all.users') }}" class="btn btn-primary submit" style="float: right">Back</a>
 				</div>
 			</div>
 		</div>

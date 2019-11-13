@@ -63,7 +63,7 @@ class UserController extends Controller
             $newUser['password'] = Hash::make($request->password);
             User::create($newUser);
 
-            return redirect('/users')->with('success_status', 'New User ' . $request->first_name . ' ' . $request->last_name . ' has been added' );
+            return redirect('/allUsers')->with('success_status', 'New User ' . $request->first_name . ' ' . $request->last_name . ' has been added' );
         } else {
           return back()->withErrors($validator)->withInput();
         }
@@ -95,13 +95,6 @@ class UserController extends Controller
       return view('admin.body.user.edit',  compact('getUser'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $getUser = User::findOrFail($id);
@@ -116,7 +109,7 @@ class UserController extends Controller
           $getUser->update(['first_name'=>$request->first_name, 'last_name'=>$request->last_name,
           'phone'=>$request->phone]);
 
-          return redirect('/users')->with('success_status', $request->first_name . " " . $request->last_name . "'s Details has been Updated");
+          return redirect('/allUsers')->with('success_status', $request->first_name . " " . $request->last_name . "'s Details has been Updated");
         }
     }
 

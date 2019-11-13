@@ -1,6 +1,6 @@
 @extends('admin.base')
 @section('title')
-Users | List
+InActive Subscribers | List
 @endsection
 @section('content')
 <div class="page-content">
@@ -8,7 +8,7 @@ Users | List
 	<nav class="page-breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Tables</a></li>
-			<li class="breadcrumb-item active" aria-current="page">All Users Table</li>
+			<li class="breadcrumb-item active" aria-current="page">InActive Subscribers Table</li>
 		</ol>
 	</nav>
 
@@ -16,9 +16,10 @@ Users | List
 		<div class="col-md-12 grid-margin stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h6 class="card-title">All Users table</h6>
-					<p class="card-description">Total Number: <code>{{allUsers()}}</code></p>
+					<h6 class="card-title">InActive Subscribers table</h6>
+					<p class="card-description">Total Number: <code>{{inactiveUsers()}}</code></p>
 					<div class="table-responsive pt-3">
+
 						@if(session('success_status'))
 						<div class="alert alert-success alert-dismissible fade show" role="alert">
 							<strong>{{ session('success_status') }}</strong>
@@ -27,6 +28,7 @@ Users | List
 							</button>
 						</div>
 						@endif
+
 						<table class="table table-bordered">
 							<thead>
 								<tr>
@@ -51,7 +53,7 @@ Users | List
 								</tr>
 							</thead>
 							<tbody>
-								@forelse($getUsers as $getUser)
+								@forelse($inactiveUsers as $getUser)
 								<tr>
 									<td>
 										{{ $getUser->id }}
@@ -69,8 +71,8 @@ Users | List
 										{{ $getUser->created_at }}
 									</td>
 									<td>
-										<a href="/allUsers/{{ $getUser->id }}/edit" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="edit"></i></a>
-										<a href="/allUsers/{{ $getUser->id }}" class="btn btn-success btn-xs"><i class="link-icon" data-feather="eye"></i></a>
+										<a href="/add/subscriber/{{ $getUser->id }}" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="dollar-sign"></i></a>
+										<a href="#" class="btn btn-success btn-xs"><i class="link-icon" data-feather="eye"></i></a>
 									</td>
 								</tr>
 								@empty
@@ -80,7 +82,7 @@ Users | List
 						</table>
 					</div>
 					<br>
-							{{ $getUsers->links() }}
+							{{ $inactiveUsers->links() }}
 
 				</div>
 			</div>

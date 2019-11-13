@@ -49,9 +49,10 @@ Edit | {{ $getUser->first_name }} {{ $getUser->last_name }}
 		<div class="col-md-12 stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h6 class="card-title">All Users | Edit User</h6>
-					<form action="/editUsers/{{ $getUser->id }}" method="POST">
-						@csrf
+					<h6 class="card-title">InActive User | Edit User</h6>
+					<form action="/unsubcribed/{{ $getUser->id }}" method="POST">
+						{{ method_field('PUT') }}
+            {{ csrf_field() }}
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
@@ -77,12 +78,12 @@ Edit | {{ $getUser->first_name }} {{ $getUser->last_name }}
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label class="control-label">Email address</label>
-									<input type="email" class="form-control" name="email" value="{{ $getUser->email }}" disabled>
+									<input type="email" class="form-control" name="email" value="{{ $getUser->email }}">
 								</div>
 							</div><!-- Col -->
 						</div><!-- Row -->
-						<input type="submit" class="btn btn-primary submit" value="Submit">
-						<a href="{{ route('all.users') }}" class="btn btn-primary submit" style="float: right">Back</a>
+						<input type="submit" class="btn btn-primary submit" value="Submit" />
+						<a href="{{ route('unsubcribed.index') }}" class="btn btn-primary submit" style="float: right">Back</a>
 					</form>
 				</div>
 			</div>

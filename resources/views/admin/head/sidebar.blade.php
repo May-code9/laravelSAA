@@ -28,10 +28,10 @@
         <div class="collapse" id="all">
           <ul class="nav sub-menu">
             <li class="nav-item">
-              <a href="{{ route('users.index') }}" class="nav-link">List</a>
+              <a href="{{ route('all.users') }}" class="nav-link">List</a>
             </li>
             <li class="nav-item">
-              <a href="{{ route('users.create') }}" class="nav-link">Add</a>
+              <a href="{{ route('add.users') }}" class="nav-link">Add</a>
             </li>
           </ul>
         </div>
@@ -48,25 +48,20 @@
           <span class="link-title">InActive Users</span>
         </a>
       </li>
-      <li class="nav-item nav-category">Transactions</li>
+      <li class="nav-item nav-category">Subscribers</li>
       <li class="nav-item">
         <a href="#" class="nav-link">
           <i class="link-icon" data-feather="align-justify"></i>
-          <span class="link-title">Active Transactions</span>
+          <span class="link-title">Active Subscribers</span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('unpaid.index') }}" class="nav-link">
           <i class="link-icon" data-feather="edit-2"></i>
-          <span class="link-title">Inactive Transactions</span>
+          <span class="link-title">Inactive Subscribers</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="link-icon" data-feather="plus"></i>
-          <span class="link-title">Add Transactions</span>
-        </a>
-      </li>
+
       <li class="nav-item nav-category">QR Code</li>
       <li class="nav-item">
         <a href="#" class="nav-link">
