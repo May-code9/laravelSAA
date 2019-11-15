@@ -91,7 +91,7 @@ class ImageEditorController extends Controller
         $first_name = $passport->first_name;
         $last_name = $passport->last_name;
 
-        return redirect('/users')->with('success_status', $first_name . ' ' . $last_name . " 's Image Uploaded Successfully");
+        return redirect('/allUsers')->with('success_status', $first_name . ' ' . $last_name . " 's Image Uploaded Successfully");
       } else {
         return back()->withErrors($validator)->withInput();
       }

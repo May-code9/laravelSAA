@@ -69,7 +69,7 @@ Edit | User Passport
 							</div><!-- Col -->
 						</div>
 						<input type="submit" class="btn btn-primary submit" value="Submit">
-						<a href="{{ route('users.index') }}" class="btn btn-primary submit" style="float: right">Back</a>
+						<a href="{{ route('all.users') }}" class="btn btn-primary submit" style="float: right">Back</a>
 					</form>
 				</div>
 			</div>

@@ -22,6 +22,25 @@ Add | Subscription
 					<form action="/add/subscriber/{{ $getUser->id }}" method="POST" enctype="multipart/form-data">
 						@csrf
 
+						@if($countUserReceipt > 0)
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="control-label">Payment Receipt</label>
+									<img src="{{asset('paymentReceipt/' . $getUserReceipt->image)}}" class="img-fluid" alt="Payment Receipt">
+								</div>
+							</div>
+						</div>
+						@else
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<h2>No Payment Receipt Uploaded Yet</h2>
+								</div>
+							</div>
+						</div>
+						@endif
+
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="form-group">
@@ -114,7 +133,7 @@ Add | Subscription
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Payment Receipt</label>
-									<input type="file" class="form-control" name="image" id="passport" required>
+									<input type="file" class="form-control" name="image" id="passport">
 									<br>
 									<img id="blah" src="#" alt="" width="140px" height="auto" style="display: none"/>
 									@error('image')

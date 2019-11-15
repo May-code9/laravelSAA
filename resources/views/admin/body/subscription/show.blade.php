@@ -53,26 +53,33 @@ View | Subscription
 						</div><!-- Row -->
 
 						<div class="row">
-							<div class="col-sm-4">
+							<div class="col-sm-6">
 								<div class="form-group">
 									<label class="control-label">Number of Months</label>
 									<input type="text" class="form-control" value="{{ $getUser->timeline }} Month(s)" disabled>
 								</div>
 							</div><!-- Col -->
-							<div class="col-sm-4">
+							<div class="col-sm-6">
 								<div class="form-group">
 									<label class="control-label">Subscription Month</label>
 									<input type="text" class="form-control" value="{{ $getUser->start_month }}" disabled>
 								</div>
 							</div><!-- Col -->
-							<div class="col-sm-4">
+						</div><!-- Row -->
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label class="control-label">Expiration Date</label>
+									<input type="text" class="form-control" value="{{ $getUser->end_month }}: 12am" disabled>
+								</div>
+							</div><!-- Col -->
+							<div class="col-sm-6">
 								<div class="form-group">
 									<label class="control-label">Subscription Cost</label>
 									<input type="text" class="form-control" value="{{ $getUser->subscription_cost }}" disabled>
 								</div>
 							</div><!-- Col -->
 						</div><!-- Row -->
-
 						<a href="{{ route('all.subscriber') }}" class="btn btn-primary submit" style="float: right">Back</a>
 					</form>
 				</div>

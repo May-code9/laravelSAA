@@ -16,7 +16,7 @@ class CreatePaymentImagesTable extends Migration
         Schema::create('payment_images', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('admin_id');
+            $table->unsignedBigInteger('admin_id')->nullable();
             $table->string('image');
             $table->timestamps();
 

@@ -16,14 +16,23 @@ class='com_content view-category layout-theme3557category itemid-101 home j39 mm
   @include('partials.header.about')
   @elseif(Route::currentRouteName() == 'login')
   @include('partials.header.login')
-  @elseif(Route::currentRouteName() == 'register' || Route::currentRouteName() == 'photo.show')
+  @elseif(Route::currentRouteName() == 'register' || Route::currentRouteName() == 'photo.show' || Route::currentRouteName() == 'receipt.show')
   @include('partials.header.register')
   @endif
   <style media="screen">
     ul.dropdown-menu li + li::before {
       content: none;
     }
+    .alert::before {
+      content: none;
+    }
   </style>
+  <script>
+    window.Laravel = {!! json_encode([
+      'csrfToken' => csrf_token(),
+    ]) !!};
+  </script>
+
 </head>
 
 <body class="body__home option-com_content view-category task- itemid-101">
@@ -60,6 +69,7 @@ class='com_content view-category layout-theme3557category itemid-101 home j39 mm
                   </div>
                 </div>
               </div>
+
               <!-- //LOGO -->
 
               <div class="moduletable social-menu  col-sm-6"><div class="module_container"><ul class="nav menu social-menu">
@@ -341,6 +351,13 @@ class='com_content view-category layout-theme3557category itemid-101 home j39 mm
                             <li itemprop='name'  data-id="331" style="display: inline;">
                               <a class="dropdown-item" href="{{ route('photo.show') }}" >
                                   {{ __('Upload Passport') }}
+                              </a>
+                            </li>
+                            @endif
+                            @if(checkReceipt() == 0)
+                            <li itemprop='name'  data-id="331" style="display: inline;">
+                              <a class="dropdown-item" href="{{ route('receipt.show') }}" >
+                                  {{ __('Upload Receipt') }}
                               </a>
                             </li>
                             @endif
