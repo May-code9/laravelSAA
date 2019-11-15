@@ -69,7 +69,7 @@ Active Subscribers | List
 										{{ $getUser->created_at }}
 									</td>
 									<td>
-										<a href="/users/{{ $getUser->id }}/edit" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="edit"></i></a>
+										<a href="/edit/subscriber/{{ $getUser->id }}" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="edit"></i></a>
 										<a href="/view/subscriber/{{ $getUser->id }}" class="btn btn-success btn-xs"><i class="link-icon" data-feather="eye"></i></a>
 									</td>
 								</tr>

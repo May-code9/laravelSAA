@@ -7,6 +7,8 @@ class='com_content view-category layout-theme3557category itemid-101 home j39 mm
   <meta name="apple-mobile-web-app-capable" content="YES"/>  <base href="/" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="generator" content="Joomla! - Open Source Content Management" />
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   @if(Route::currentRouteName() == 'trade.home')
   @include('partials.header.index')

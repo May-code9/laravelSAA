@@ -19,7 +19,7 @@ Add | Subscription
 			<div class="card">
 				<div class="card-body">
 					<h6 class="card-title">Subscription | Add Subscription</h6>
-					<form action="/add/subscriber/{{ $getUser->id }}" method="POST">
+					<form action="/add/subscriber/{{ $getUser->id }}" method="POST" enctype="multipart/form-data">
 						@csrf
 
 						<div class="row">
@@ -36,9 +36,9 @@ Add | Subscription
 									<label class="control-label">Preferred Session</label>
 									<select id="session" class="form-control @error('session') is-invalid @enderror" name="session" value="{{ old('session') }}" required >
 										<option selected disabled>--Select a Preferred Session--</option>
-										<option value="first">First Session</option>
-										<option value="second">Second Session</option>
-										<option value="both">Both</option>
+										<option value="First">First Session</option>
+										<option value="Second">Second Session</option>
+										<option value="Both">Both Sessions</option>
 									</select>
 									@error('session')
 											<span class="invalid-feedback" role="alert">
@@ -61,7 +61,7 @@ Add | Subscription
 						</div><!-- Row -->
 
 						<div class="row">
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Number of Months</label>
 									<select id="timeline" class="form-control @error('timeline') is-invalid @enderror" name="timeline" required >
@@ -86,10 +86,10 @@ Add | Subscription
 									@enderror
 								</div>
 							</div><!-- Col -->
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Subscription Month</label>
-									<select id="subscription_month" class="form-control @error('subscription_month') is-invalid @enderror" name="subscription_month" value="{{ old('subscription_month') }}" required >
+									<select id="start_month" class="form-control @error('start_month') is-invalid @enderror" name="start_month" value="{{ old('start_month') }}" required >
 										<option selected disabled>--Select month to start subscription--</option>
 										<option value="January">January</option>
 										<option value="February">February</option>
@@ -104,7 +104,20 @@ Add | Subscription
 										<option value="November">November</option>
 										<option value="December">December</option>
 									</select>
-									@error('subscription_month')
+									@error('start_month')
+											<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+											</span>
+									@enderror
+								</div>
+							</div><!-- Col -->
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label class="control-label">Payment Receipt</label>
+									<input type="file" class="form-control" name="image" id="passport" required>
+									<br>
+									<img id="blah" src="#" alt="" width="140px" height="auto" style="display: none"/>
+									@error('image')
 											<span class="invalid-feedback" role="alert">
 													<strong>{{ $message }}</strong>
 											</span>

@@ -36,5 +36,7 @@ Route::group(['middleware'=>'isAdmin'], function () {
   Route::get('/add/subscriber/{id}', ['as'=>'add.subscriber', 'uses'=>'Admin\SubscriptionController@create']);
   Route::post('/add/subscriber/{id}', ['as'=>'add.subscriber', 'uses'=>'Admin\SubscriptionController@add_subscriber']);
   Route::get('/view/subscriber/{id}', ['as'=>'view.subscriber', 'uses'=>'Admin\SubscriptionController@view_subscriber']);
+  Route::get('/edit/subscriber/{id}', ['as'=>'edit.subscriber', 'uses'=>'Admin\SubscriptionController@edit_subscriber']);
+  Route::post('/edit/subscriber/{id}', ['as'=>'edit.subscriber', 'uses'=>'Admin\SubscriptionController@update_subscriber']);
   Route::get('/unpaid', ['as'=>'unpaid.index', 'uses'=>'Admin\InActiveSubscriptionController@index']);
 });

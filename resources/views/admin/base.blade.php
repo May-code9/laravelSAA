@@ -62,7 +62,8 @@
   <!-- end custom js for this page -->
   @endif
 
-  @if(Route::currentRouteName() == 'add.users' || Route::currentRouteName() == 'imageEdit.edit')
+  @if(Route::currentRouteName() == 'add.users' || Route::currentRouteName() == 'imageEdit.edit'
+  || Route::currentRouteName() == 'add.subscriber' || Route::currentRouteName() == 'edit.subscriber')
   <script type="text/javascript">
   jQuery(function($) {
     $(document).ready(function() {
@@ -94,6 +95,7 @@
 
         width = width - (width/1.3);
         $('.profile-pic').css({'width': width, 'height': 'auto'});
+        $('.payment-pic').css({'width': width * 2, 'height': 'auto', 'margin': '0 auto'})
       })
   </script>
   <!-- inject:js -->

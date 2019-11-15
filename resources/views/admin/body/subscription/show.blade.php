@@ -21,6 +21,14 @@ View | Subscription
 					<h6 class="card-title">Subscription | View Subscription</h6>
 					<form action="#" method="POST">
 						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="control-label">Payment Receipt</label>
+									<img src="{{asset('paymentReceipt/' . $getPaymentReceipt->image)}}" class="img-fluid" alt="Payment Receipt">
+								</div>
+							</div>
+						</div>
+						<div class="row">
 							<div class="col-sm-12">
 								<div class="form-group">
 									<h5>{{ $getUser->first_name }} {{ $getUser->last_name }}</h5>
@@ -54,7 +62,7 @@ View | Subscription
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Subscription Month</label>
-									<input type="text" class="form-control" value="{{ $getUser->subscription_month }}" disabled>
+									<input type="text" class="form-control" value="{{ $getUser->start_month }}" disabled>
 								</div>
 							</div><!-- Col -->
 							<div class="col-sm-4">
@@ -65,7 +73,6 @@ View | Subscription
 							</div><!-- Col -->
 						</div><!-- Row -->
 
-						<input type="submit" class="btn btn-primary submit" value="Submit">
 						<a href="{{ route('all.subscriber') }}" class="btn btn-primary submit" style="float: right">Back</a>
 					</form>
 				</div>

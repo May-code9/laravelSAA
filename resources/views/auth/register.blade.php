@@ -38,7 +38,7 @@
 								</div>
 								<div class="controls"></div>
 							</div>
-							
+
 							<div class="control-group">
 								<div class="control-label">
 									<label id="first_name" for="first_name" class="hasPopover required" title="first_name" data-content="Enter your First name.">First Name<span class="star">&#160;*</span></label>

@@ -193,22 +193,25 @@
           <div class="dropdown-body">
             <ul class="profile-nav p-0 pt-3">
               <li class="nav-item">
-                <a href="pages/general/profile.html" class="nav-link">
+                <a href="/allUsers/{{ Auth::id() }}" class="nav-link">
                   <i data-feather="user"></i>
                   <span>Profile</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="javascript:;" class="nav-link">
+                <a href="/allUsers/{{ Auth::id() }}/edit" class="nav-link">
                   <i data-feather="edit"></i>
                   <span>Edit Profile</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="javascript:;" class="nav-link">
+                <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   <i data-feather="log-out"></i>
                   <span>Log Out</span>
                 </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
               </li>
             </ul>
           </div>
