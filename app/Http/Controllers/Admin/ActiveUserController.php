@@ -17,6 +17,7 @@ class ActiveUserController extends Controller
      */
     public function index()
     {
+      deleteExpiredSubscription();
       $getSubscribedUsers = Subscription::join('users', 'users.id', '=', 'subscriptions.user_id')
       ->select('first_name', 'last_name', 'phone', 'email', 'users.created_at', 'users.id')
       ->paginate(20);

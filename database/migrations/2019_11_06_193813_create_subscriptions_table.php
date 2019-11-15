@@ -20,7 +20,7 @@ class CreateSubscriptionsTable extends Migration
             $table->integer('capital');
             $table->integer('timeline');
             $table->string('start_month');
-            $table->string('end_month');
+            $table->date('end_month');
             $table->integer('subscription_cost');
             $table->timestamps();
 

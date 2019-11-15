@@ -8,6 +8,7 @@ class PagesController extends Controller
 {
   public function index()
   {
+    deleteExpiredSubscription();
     return view('pages.index');
   }
   public function about()

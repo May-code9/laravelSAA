@@ -4,6 +4,8 @@ use App\Admin;
 use Carbon\Carbon;
 use App\Subscription;
 use App\PaymentImage;
+use App\OldSubscription;
+use App\OldPaymentImage;
 
 function checkAdmin()
 {
@@ -75,7 +77,7 @@ function endMonth($start_month, $timeline)
     }
   }
   $convertEndMonthYear = strtotime($monthNum . '/' . 1 . '/' .$newyear);
-  $endMonth = date('d F Y', $convertEndMonthYear);
+  $endMonth = date('Y-m-d', $convertEndMonthYear);
 
   return $endMonth;
 }
@@ -84,4 +86,24 @@ function checkReceipt()
   $checkReceipt = PaymentImage::where('user_id', Auth::id())->count();
 
   return $checkReceipt;
+}
+function deleteExpiredSubscription()
+{
+  $nowDate = now();
+  $nowDate = strtotime($nowDate);
+  $toTimeNowDate = date('Y-m-d', $nowDate);
+
+  $getEndDate = Subscription::where('end_month', '<', $toTimeNowDate)->count();
+  if($getEndDate > 0) {
+    $getUserDate = Subscription::where('end_month', '<', $toTimeNowDate)->get()->toArray();
+    foreach ($getUserDate as $userDate) {
+      OldSubscription::insert($userDate);
+      $getImages = PaymentImage::where('user_id', $userDate['user_id'])->get()->toArray();
+      foreach ($getImages as $getImage) {
+        OldPaymentImage::insert($getImage);
+      }
+      PaymentImage::where('user_id', $userDate['user_id'])->delete();
+    }
+    Subscription::where('end_month', '<', $toTimeNowDate)->delete();
+  }
 }

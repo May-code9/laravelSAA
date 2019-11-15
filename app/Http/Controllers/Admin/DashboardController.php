@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
   public function index()
   {
+    deleteExpiredSubscription();
     return view('admin.body.index');
   }
 }
