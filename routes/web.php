@@ -41,4 +41,7 @@ Route::group(['middleware'=>'isAdmin'], function () {
   Route::get('/edit/subscriber/{id}', ['as'=>'edit.subscriber', 'uses'=>'Admin\SubscriptionController@edit_subscriber']);
   Route::post('/edit/subscriber/{id}', ['as'=>'edit.subscriber', 'uses'=>'Admin\SubscriptionController@update_subscriber']);
   Route::get('/unpaid', ['as'=>'unpaid.index', 'uses'=>'Admin\InActiveSubscriptionController@index']);
+  Route::get('/user/qrcode', ['as'=>'qrcode.view', 'uses'=>'Admin\QrcodeController@generate_view']);
+  Route::post('/generate/qrcode/{id}', ['as'=>'qrcode.generate', 'uses'=>'Admin\QrcodeController@post_generate_view']);
+  Route::get('/qrcode/userview/{id}', 'Admin\QrcodeController@view_generated');
 });

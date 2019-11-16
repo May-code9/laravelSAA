@@ -64,9 +64,9 @@
 
       <li class="nav-item nav-category">QR Code</li>
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('qrcode.view') }}" class="nav-link">
           <i class="link-icon" data-feather="slack"></i>
-          <span class="link-title">View QR</span>
+          <span class="link-title">QR Code</span>
         </a>
       </li>
       <li class="nav-item nav-category">Admin</li>

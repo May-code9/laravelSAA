@@ -46,6 +46,13 @@
   <!-- core:js -->
   <script src="{{asset('assets/vendors/core/core.js')}}"></script>
   <!-- endinject -->
+  <script>
+      $(function () {
+        $(":button").on('click', function () {
+          $(":button").attr('disabled', true);
+        });
+      });
+    </script>
   @if(Route::currentRouteName() == 'trade.dashboard')
   <!-- plugin js for this page -->
   <script src="{{asset('assets/vendors/chartjs/Chart.min.js')}}"></script>
@@ -60,6 +67,44 @@
   <script src="{{asset('assets/js/dashboard.js')}}"></script>
   <script src="{{asset('assets/js/datepicker.js')}}"></script>
   <!-- end custom js for this page -->
+  @endif
+
+  @if(Route::currentRouteName() == 'qrcode.view')
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      $('.generator').on('click', function () {
+        var aId = $(this).attr('id');
+        var userId = $(this).attr('data-userid');
+        var formId = $(this).attr('data-id');
+        var action = $('#'+ formId).attr('action');
+        var formData = $('#'+ formId).serialize();
+
+        $.ajax({
+          type: "POST",
+          url: action,
+          data: formData,
+
+          success: function(value) {
+            var button = '<button type="button" class="btn btn-secondary" disabled>Done</button>';
+            var button2 = '<a href="/qrcode/userview/'+ userId +'" class="btn btn-success">View</a>';
+
+            $('#formId').replaceWith(" ");
+            $('#' + aId).replaceWith(button);
+            $('.' + formId).replaceWith(button2)
+
+            var message = value.result;
+            var user = value.user;
+            swal("Good job!", message + ' and saved as ' + user + '.png', "success");
+          },
+          error: function() {
+
+          }
+        });
+      })
+    })
+  </script>
   @endif
 
   @if(Route::currentRouteName() == 'add.users' || Route::currentRouteName() == 'imageEdit.edit'
@@ -80,7 +125,7 @@
       }
 
       $("#passport").change(function() {
-        $("#blah").slideDown(3000);
+        $("#blah").slideDown(1000);
         readURL(this);
       });
     });
@@ -101,6 +146,7 @@
   <!-- inject:js -->
   <script src="{{asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
   <script src="{{asset('assets/js/template.js')}}"></script>
+
   <!-- endinject -->
 
 </body>

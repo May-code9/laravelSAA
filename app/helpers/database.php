@@ -1,4 +1,5 @@
 <?php
+use App\Qr;
 use App\User;
 use App\Admin;
 use Carbon\Carbon;
@@ -103,7 +104,14 @@ function deleteExpiredSubscription()
         OldPaymentImage::insert($getImage);
       }
       PaymentImage::where('user_id', $userDate['user_id'])->delete();
+      Qr::where('user_id', $userDate['user_id'])->delete();
     }
     Subscription::where('end_month', '<', $toTimeNowDate)->delete();
   }
+}
+function checkQr($id)
+{
+  $checkQr = Qr::where('user_id', $id)->count();
+
+  return $checkQr;
 }
