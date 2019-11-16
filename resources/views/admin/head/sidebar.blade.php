@@ -71,13 +71,13 @@
       </li>
       <li class="nav-item nav-category">Admin</li>
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('admins.all') }}" class="nav-link">
           <i class="link-icon" data-feather="align-justify"></i>
           <span class="link-title">List</span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('admins.add') }}" class="nav-link">
           <i class="link-icon" data-feather="edit-2"></i>
           <span class="link-title">Add</span>
         </a>

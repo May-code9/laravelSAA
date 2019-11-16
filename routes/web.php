@@ -44,4 +44,10 @@ Route::group(['middleware'=>'isAdmin'], function () {
   Route::get('/user/qrcode', ['as'=>'qrcode.view', 'uses'=>'Admin\QrcodeController@generate_view']);
   Route::post('/generate/qrcode/{id}', ['as'=>'qrcode.generate', 'uses'=>'Admin\QrcodeController@post_generate_view']);
   Route::get('/qrcode/userview/{id}', 'Admin\QrcodeController@view_generated');
+  Route::get('/verified', ['as'=>'admins.all', 'uses'=>'Admin\AdminController@all_admin_users']);
+  Route::get('/select/admins/', ['as'=>'admins.add', 'uses'=>'Admin\AdminController@add_admin_users']);
+  Route::post('select/admins/', ['as'=>'admins.add', 'uses'=>'Admin\AdminController@post_admin_user']);
+  Route::get('/admins/{id}', ['as'=>'admins.show', 'uses'=>'Admin\AdminController@admin_user']);
+  Route::get('/edit/admin/{id}', 'Admin\AdminController@edit_admin');
+  Route::post('/edit/admin/{id}', 'Admin\AdminController@post_edit_admin');
 });
