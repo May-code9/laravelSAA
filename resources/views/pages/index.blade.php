@@ -292,7 +292,16 @@ Increase access to high-quality education for everyone, everywhere .Enhance teac
 <div class="item_content">
 
 	<!-- Item title -->
-		<h6 class="item_title item_title__news"><a href="index.php/76-home/top-specializations/176-advance-your-career-improve-your-life-3"><span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Advance</span> <span class="item_title_part_1 item_title_part_even item_title_part_first_half">Your</span> <span class="item_title_part_2 item_title_part_odd item_title_part_first_half">Career.</span> <span class="item_title_part_3 item_title_part_even item_title_part_second_half">Improve</span> <span class="item_title_part_4 item_title_part_odd item_title_part_second_half">Your</span> <span class="item_title_part_5 item_title_part_even item_title_part_second_half item_title_part_last">Life.</span></a></h6>
+		<h6 class="item_title item_title__news">
+      <a href="index.php/76-home/top-specializations/176-advance-your-career-improve-your-life-3">
+        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Advance</span>
+        <span class="item_title_part_1 item_title_part_even item_title_part_first_half">Your</span>
+        <span class="item_title_part_2 item_title_part_odd item_title_part_first_half">Career.</span>
+        <span class="item_title_part_3 item_title_part_even item_title_part_second_half">Improve</span>
+        <span class="item_title_part_4 item_title_part_odd item_title_part_second_half">Your</span>
+        <span class="item_title_part_5 item_title_part_even item_title_part_second_half item_title_part_last">Life.</span>
+      </a>
+    </h6>
 		<!-- Introtext -->
 	<div class="item_introtext">
 		<p>Standford University</p>

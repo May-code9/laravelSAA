@@ -23,7 +23,9 @@ View | Subscription
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<label class="control-label">Payment Receipt</label>
+									<div style="margin-bottom: 10px">
+										<label class="control-label">Payment Receipt</label>
+									</div>
 									<img src="{{asset('paymentReceipt/' . $getPaymentReceipt->image)}}" class="img-fluid" alt="Payment Receipt">
 								</div>
 							</div>
@@ -70,7 +72,7 @@ View | Subscription
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label class="control-label">Expiration Date</label>
-									<input type="text" class="form-control" value="{{ $getUser->end_month }}: 12am" disabled>
+									<input type="text" class="form-control" value="{{ $getUser->dater }}: 12am" disabled>
 								</div>
 							</div><!-- Col -->
 							<div class="col-sm-6">
