@@ -590,7 +590,8 @@
           <div class="module_container">
             <div class="acymailing_module " id="acymailing_module_formAcymailing21011">
               <div class="acymailing_fulldiv" id="acymailing_fulldiv_formAcymailing21011"  >
-                <form id="formAcymailing21011" action="index.php" method="post" name="formAcymailing21011"  >
+                <form id="formletter">
+                  @csrf
                   <div class="acymailing_module_form" >
                     <div class="acymailing_form">
                       <div class="row">
@@ -600,26 +601,17 @@
                         <div class="col-sm-5">
                           <p class="onefield fieldacyemail" id="field_email_formAcymailing21011">
                             <span class="acyfield_email acy_requiredField">
-                              <input id="user_email_formAcymailing21011" class="inputbox" type="email" name="user[email]"  placeholder="Enter Your Email" required>
+                              <input class="inputbox clearEmail" type="email" name="email"  placeholder="Enter Your Email" required>
                             </span>
                           </p>
                         </div>
                         <div class="col-sm-3">
                           <p class="acysubbuttons">
-                            <input class="button subbutton btn btn-primary" type="submit" value="SUBSCRIBE" name="Submit"/>
+                            <input class="button subbutton btn btn-primary" id="newsletter" value="SUBSCRIBE" name="Submit"/>
                           </p>
                         </div>
                       </div>
                     </div>
-                    <input type="hidden" name="ajax" value="0"/>
-                    <input type="hidden" name="acy_source" value="module_298" />
-                    <input type="hidden" name="ctrl" value="sub"/>
-                    <input type="hidden" name="task" value="notask"/>
-                    <input type="hidden" name="redirect" value="https%3A%2F%2Flivedemo00-joomla.template-help.com%2Fjoomla_prod-13901_v1%2Findex.php"/>
-                    <input type="hidden" name="redirectunsub" value="https%3A%2F%2Flivedemo00-joomla.template-help.com%2Fjoomla_prod-13901_v1%2Findex.php"/>
-                    <input type="hidden" name="option" value="com_acymailing"/>
-                    <input type="hidden" name="hiddenlists" value="1"/>
-                    <input type="hidden" name="acyformname" value="formAcymailing21011" />
                   </div>
                 </form>
               </div>

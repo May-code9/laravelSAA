@@ -11,6 +11,33 @@
 
   @if(Route::currentRouteName() == 'trade.home')
   @include('partials.header.index')
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript">
+  jQuery(function ($) {
+    $(document).ready(function () {
+
+      $('#newsletter').on('click', function () {
+        var action = $('#formletter').attr('action');
+        var formData = $('#formletter').serialize();
+
+        $.ajax({
+          type: "POST",
+          url: "{!! URL::to('/newsletter') !!}",
+          data: formData,
+
+          success: function(value) {
+            var message = value.result;
+            $('.clearEmail').val('');
+            swal("Good job!", message, "success");
+          },
+          error: function() {
+
+          }
+        });
+      })
+    })
+  })
+  </script>
   @elseif(Route::currentRouteName() == 'trade.about')
   @include('partials.header.about')
   @elseif(Route::currentRouteName() == 'trade.services')

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Newsletter;
 use QrCode;
 use Auth;
 
@@ -31,5 +32,21 @@ class PagesController extends Controller
     deleteExpiredSubscription();
     $contact = 'addActive';
     return view('pages.contact', compact('contact'));
+  }
+  public function newsletter(Request $request)
+  {
+    $checkEmail = Newsletter::where('email', $request->email)->count();
+    if($checkEmail > 0) {
+      return response()->json(array(
+        "result"=> "You are already on our list of subscribers",
+      ));
+    }
+    else {
+      Newsletter::create($request->all());
+
+      return response()->json(array(
+        "result"=> "Success",
+      ));
+    }
   }
 }
