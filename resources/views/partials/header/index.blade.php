@@ -2,7 +2,6 @@
 <link href="index.php/component/search/?layout=theme3557:category&amp;id=2&amp;Itemid=101&amp;format=opensearch" rel="search" title="Search EduX" type="application/opensearchdescription+xml" />
 <link href="index.php?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0" />
 <link href="index.php?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0" />
-<link href="templates/theme3557/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 <link href="templates/theme3557/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="media/jui/css/chosen.css?168c1d0d02a12ac3c9a4a0f2e53376a1" rel="stylesheet" type="text/css" />
 <link href="templates/theme3557/css/template.css" rel="stylesheet" type="text/css" />

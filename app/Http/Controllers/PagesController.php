@@ -11,11 +11,25 @@ class PagesController extends Controller
   public function index()
   {
     deleteExpiredSubscription();
-    //QrCode::format('png')->size(400)->generate('Embed me into an e-mail!', 'qrcode/' . Auth::id() . '.png');
-    return view('pages.index');
+    $home = 'addActive';
+    return view('pages.index', compact('home'));
   }
   public function about()
   {
-    return view('pages.about');
+    deleteExpiredSubscription();
+    $about = 'addActive';
+    return view('pages.about', compact('about'));
+  }
+  public function services()
+  {
+    deleteExpiredSubscription();
+    $services = 'addActive';
+    return view('pages.services', compact('services'));
+  }
+  public function contact()
+  {
+    deleteExpiredSubscription();
+    $contact = 'addActive';
+    return view('pages.contact', compact('contact'));
   }
 }

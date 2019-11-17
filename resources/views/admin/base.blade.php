@@ -20,7 +20,7 @@
   <!-- Layout styles -->
   <link rel="stylesheet" href="{{ asset('assets/css/demo_1/style.css') }}">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
+  <link rel="shortcut icon" href="{{ asset('favicon.png') }}" />
 
 </head>
 <body>

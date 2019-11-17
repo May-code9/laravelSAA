@@ -1,5 +1,4 @@
 <title>User registration</title>
-<link href="templates/theme3557/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 <link href="index.php/component/search/?Itemid=101&amp;format=opensearch" rel="search" title="Search EduX" type="application/opensearchdescription+xml" />
 <link href="templates/theme3557/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="media/system/css/fields/calendar.css" rel="stylesheet" type="text/css" />

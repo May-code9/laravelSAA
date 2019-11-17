@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'name' => 'Success Algorithm Academy',
-    'shortName' => 'SAA',
+    'name' => 'Perfect Algorithm Academy Limited',
+    'shortName' => 'PAA',
 
     /*
     |--------------------------------------------------------------------------

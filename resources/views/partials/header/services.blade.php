@@ -1,4 +1,6 @@
-<title>Login form</title>
+<title>Our Services</title>
+<link href="pages/history?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0" />
+<link href="pages/history?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0" />
 <link href="index.php/component/search/?Itemid=101&amp;format=opensearch" rel="search" title="Search EduX" type="application/opensearchdescription+xml" />
 <link href="templates/theme3557/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="media/jui/css/chosen.css?168c1d0d02a12ac3c9a4a0f2e53376a1" rel="stylesheet" type="text/css" />
@@ -16,27 +18,20 @@
 <style type="text/css">
 div.mod_search195 input[type="search"]{ width:auto; }
 </style>
-<script type="application/json" class="joomla-script-options new">{"csrf.token":"f1b06bcbd7dbcee4e5279ebeba05672c","system.paths":{"root":"\/joomla_prod-13901_v1","base":"\/joomla_prod-13901_v1"},"system.keepalive":{"interval":300000,"uri":"\/joomla_prod-13901_v1\/index.php\/component\/ajax\/?format=json"}}</script>
-<script src="media/system/js/core.js?168c1d0d02a12ac3c9a4a0f2e53376a1" type="text/javascript"></script>
-<!--[if lt IE 9]><script src="media/system/js/polyfill.event.js?168c1d0d02a12ac3c9a4a0f2e53376a1" type="text/javascript"></script><![endif]-->
-<script src="media/system/js/keepalive.js?168c1d0d02a12ac3c9a4a0f2e53376a1" type="text/javascript"></script>
 <script src="media/jui/js/jquery.min.js?168c1d0d02a12ac3c9a4a0f2e53376a1" type="text/javascript"></script>
 <script src="media/jui/js/jquery-noconflict.js?168c1d0d02a12ac3c9a4a0f2e53376a1" type="text/javascript"></script>
 <script src="media/jui/js/jquery-migrate.min.js?168c1d0d02a12ac3c9a4a0f2e53376a1" type="text/javascript"></script>
 <script src="plugins/system/t3/base-bs3/bootstrap/js/bootstrap.js?168c1d0d02a12ac3c9a4a0f2e53376a1" type="text/javascript"></script>
-<script src="templates/theme3557/js/jquery.validate.min.js" type="text/javascript"></script>
-<script src="templates/theme3557/js/additional-methods.min.js" type="text/javascript"></script>
-<!--[if lt IE 9]><script src="media/system/js/html5fallback.js?168c1d0d02a12ac3c9a4a0f2e53376a1" type="text/javascript"></script><![endif]-->
 <script src="media/jui/js/chosen.jquery.min.js?168c1d0d02a12ac3c9a4a0f2e53376a1" type="text/javascript"></script>
 <script src="templates/theme3557/js/script.js" type="text/javascript"></script>
 <script src="plugins/system/t3/base-bs3/js/jquery.tap.min.js" type="text/javascript"></script>
 <script src="plugins/system/t3/base-bs3/js/script.js" type="text/javascript"></script>
 <script src="plugins/system/t3/base-bs3/js/menu.js" type="text/javascript"></script>
 <script src="plugins/system/t3/base-bs3/js/nav-collapse.js" type="text/javascript"></script>
+<!--[if lt IE 9]><script src="media/system/js/html5fallback.js?168c1d0d02a12ac3c9a4a0f2e53376a1" type="text/javascript"></script><![endif]-->
 <script src="templates/theme3557/html/mod_icemegamenu/js/menu.js" type="text/javascript" defer="defer"></script>
 <script src="templates/theme3557/html/mod_icemegamenu/js/jquery.rd-navbar.js" type="text/javascript" defer="defer"></script>
 <script type="text/javascript">
-jQuery(document).bind("ready",function(){validator=jQuery("#login-form").validate({wrapper:"mark"})});
 jQuery(function($){ initTooltips(); $("body").on("subform-row-add", initTooltips); function initTooltips (event, container) { container = container || document;$(container).find(".hasTooltip").tooltip({"html": true,"container": "body"});} });
 jQuery(function ($) {
   initChosen();
@@ -127,3 +122,8 @@ jQuery(function($){var e=$(window).width();$("#icemegamenu").find(".icesubMenu")
 <!-- You can add Google Analytics here or use T3 Injection feature -->
 
   <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<style media="screen">
+  .page-category__history .items-row > div::before {
+    content: '\f069';
+  }
+</style>

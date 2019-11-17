@@ -1,7 +1,7 @@
 <nav class="sidebar">
   <div class="sidebar-header">
     <a href="{{ route('trade.home') }}" class="sidebar-brand">
-      SA<span>A</span>
+      PA<span>A</span>
     </a>
     <div class="sidebar-toggler not-active">
       <span></span>
@@ -85,7 +85,7 @@
 
       <li class="nav-item nav-category">Docs</li>
       <li class="nav-item">
-        <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank" class="nav-link">
+        <a href="javascript:;" class="nav-link">
           <i class="link-icon" data-feather="hash"></i>
           <span class="link-title">Documentation</span>
         </a>

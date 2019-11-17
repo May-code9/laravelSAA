@@ -13,7 +13,9 @@
 
 Auth::routes();
 Route::get('/', ['as'=>'trade.home', 'uses'=>'PagesController@index']);
-Route::get('/About', ['as'=>'trade.about', 'uses'=>'PagesController@about']);
+Route::get('/about', ['as'=>'trade.about', 'uses'=>'PagesController@about']);
+Route::get('/services', ['as'=>'trade.services', 'uses'=>'PagesController@services']);
+Route::get('/contact', ['as'=>'trade.contact', 'uses'=>'PagesController@contact']);
 Route::get('/photo/show', ['as'=>'photo.show', 'uses'=>'PhotoController@show']);
 Route::post('/photo/show', ['as'=>'photo.store', 'uses'=>'PhotoController@store']);
 Route::get('/receipt/show', ['as'=>'receipt.show', 'uses'=>'PhotoController@receipt_show']);
