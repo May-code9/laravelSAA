@@ -45,7 +45,7 @@ class PagesController extends Controller
       Newsletter::create($request->all());
 
       return response()->json(array(
-        "result"=> "Success",
+        "result"=> "You have successfully subscribed for our Newsletter",
       ));
     }
   }
