@@ -49,6 +49,32 @@
   @elseif(Route::currentRouteName() == 'register' || Route::currentRouteName() == 'photo.show' || Route::currentRouteName() == 'receipt.show')
   @include('partials.header.register')
   @endif
+
+  @if(Route::currentRouteName() == 'register')
+  <script type="text/javascript">
+  jQuery(function ($) {
+    $(document).ready(function () {
+        $('#regButton').attr('disabled', true);
+        $('#regButton').css('background-color', '#474747');
+        $('#termsnagreement').hide();
+
+        $('#jform_profile_tos0').on('click', function () {
+            $('#regButton').attr('disabled', false);
+            $('#regButton').css('background-color', '#948a05');
+        })
+
+        $('#jform_profile_tos1').on('click', function () {
+          $('#regButton').attr('disabled', true);
+          $('#regButton').css('background-color', '#474747');
+        })
+
+        $('#readTnA').on('click', function () {
+          $('#termsnagreement').slideDown(1000);
+        })
+    })
+  })
+  </script>
+  @endif
   <link href="{{ asset('favicon.png') }}" rel="shortcut icon" />
   <style media="screen">
     ul.dropdown-menu li + li::before {
@@ -74,7 +100,7 @@
       var height = mapper * 0.6;
       $('.resetSize').css({'width': mapper + 'px', 'height': height + 'px'});
 
-      var percentage = downWidth - (130 * (upperCount + 1));
+      var percentage = downWidth - (135 * (upperCount + 1));
 
       percentage = (percentage/downWidth) * 100;
 
