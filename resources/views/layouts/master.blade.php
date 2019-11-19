@@ -44,6 +44,8 @@
   @include('partials.header.services')
   @elseif(Route::currentRouteName() == 'trade.contact')
   @include('partials.header.contact')
+  @elseif(Route::currentRouteName() == 'trade.faqs')
+  @include('partials.header.faqs')
   @elseif(Route::currentRouteName() == 'login')
   @include('partials.header.login')
   @elseif(Route::currentRouteName() == 'register' || Route::currentRouteName() == 'photo.show' || Route::currentRouteName() == 'receipt.show')

@@ -21,7 +21,12 @@
   <link rel="stylesheet" href="{{ asset('assets/css/demo_1/style.css') }}">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{{ asset('favicon.png') }}" />
-
+  <style media="screen">
+    .notactive {
+        pointer-events: none;
+        cursor: default;
+    }
+  </style>
 </head>
 <body>
   <div class="main-wrapper">
@@ -49,7 +54,7 @@
   <script>
       $(function () {
         $(":button").on('click', function () {
-          $(":button").attr('disabled', true);
+          $(":button").AddClass("notactive");
         });
       });
     </script>

@@ -331,7 +331,7 @@
                 <div class="clr"></div>
               </div>
               <div class="banneritem">
-                <div class="item_introtext"><a href="{{ route('login') }}" class="btn" style="background-color: #c9bb00">Login</a>	</div>
+                <div class="item_introtext"><a href="{{ route('trade.faqs') }}" class="btn" style="background-color: #c9bb00">FAQS</a>	</div>
                 <div class="clr"></div>
               </div>
             </div>

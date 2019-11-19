@@ -49,4 +49,8 @@ class PagesController extends Controller
       ));
     }
   }
+  public function faqs()
+  {
+    return view('pages.faqs');
+  }
 }

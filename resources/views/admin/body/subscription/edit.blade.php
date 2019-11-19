@@ -121,7 +121,7 @@ Edit | {{ $getUser->first_name }} {{ $getUser->last_name }}
 							</div><!-- Col -->
 						</div><!-- Row -->
 
-						<input type="submit" class="btn btn-primary submit" value="Submit">
+						<button type="submit" class="btn btn-primary submit" >Submit</button>
 						<a href="{{ route('all.subscriber') }}" class="btn btn-primary submit" style="float: right">Back</a>
 					</form>
 				</div>

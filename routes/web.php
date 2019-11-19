@@ -21,6 +21,7 @@ Route::post('/photo/show', ['as'=>'photo.store', 'uses'=>'PhotoController@store'
 Route::get('/receipt/show', ['as'=>'receipt.show', 'uses'=>'PhotoController@receipt_show']);
 Route::post('/receipt/show', ['as'=>'receipt.show', 'uses'=>'PhotoController@receipt_store']);
 Route::post('/newsletter', 'PagesController@newsletter');
+Route::get('/faqs', ['as'=>'trade.faqs', 'uses'=>'PagesController@faqs']);
 /* admin */
 Route::group(['middleware'=>'isAdmin'], function () {
   Route::get('/dashboard', ['as'=>'trade.dashboard', 'uses'=>'Admin\DashboardController@index']);
