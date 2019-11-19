@@ -117,6 +117,7 @@
 										<label id="jform_profile_tos-lbl" for="jform_profile_tos" class="hasPopover required" title="Terms of Service" data-content="Please read the Terms of Service. You will not be able to register if you do not agree with them."><a href="javascript:;" id="readTnA">Click to view Terms of Service</a><span class="star">&#160;*</span></label>
 									</div>
 									<div class="controls">
+										<h5>You cannot submit form without Agreeing. Agreeing means you have read and are satisfied with our terms and condition.</h5>
 										<fieldset id="jform_profile_tos" class="radio" required aria-required="true">
 
 											<input type="radio" id="jform_profile_tos0" name="jform[profile][tos]" value="1" required aria-required="true" />

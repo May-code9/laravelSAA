@@ -50,6 +50,8 @@
   @include('partials.header.login')
   @elseif(Route::currentRouteName() == 'register' || Route::currentRouteName() == 'photo.show' || Route::currentRouteName() == 'receipt.show')
   @include('partials.header.register')
+  @else
+  @include('partials.header.index')
   @endif
 
   @if(Route::currentRouteName() == 'register')

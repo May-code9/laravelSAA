@@ -80,7 +80,7 @@ class ImageEditorController extends Controller
       $validator = Validator::make($request->all(), $rule);
       if($validator->passes()) {
         $imageFile = $request->file('passport');
-        $imageName = time().'.'.$imageFile->getClientOriginalExtension();
+        $imageName = $request->first_name . '_' . $request->last_name . '_' . $request->email;
 
         $destinationPath = public_path('/passports');
         Image::make($imageFile->getRealPath())->save($destinationPath.'/'.$imageName);

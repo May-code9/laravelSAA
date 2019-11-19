@@ -21,6 +21,7 @@ class InActiveUserController extends Controller
       $collectAllUsers = collect($getAllUsers);
 
       $getInActiveUsers = Subscription::join('users', 'users.id', '=', 'subscriptions.user_id')
+      ->whereNotNull('subscription_cost')
       ->select('first_name', 'last_name', 'phone', 'email', 'users.created_at', 'users.id', 'user_id')
       ->pluck('user_id');
       $collectInActiveUsers = collect($getInActiveUsers);
