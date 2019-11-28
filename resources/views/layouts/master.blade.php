@@ -48,7 +48,8 @@
   @include('partials.header.faqs')
   @elseif(Route::currentRouteName() == 'login')
   @include('partials.header.login')
-  @elseif(Route::currentRouteName() == 'register' || Route::currentRouteName() == 'photo.show' || Route::currentRouteName() == 'receipt.show')
+  @elseif(Route::currentRouteName() == 'register' || Route::currentRouteName() == 'photo.show'
+  || Route::currentRouteName() == 'receipt.show' || Route::currentRouteName() == 'trade.user')
   @include('partials.header.register')
   @else
   @include('partials.header.index')
@@ -223,7 +224,7 @@
                               </li>
                               @endif
                               <li itemprop='name'  data-id="331" data-level="1" class="upper">
-                                <a href="javascript:;" class="">{{ Auth::user()->first_name }}</a>
+                                <a href="{{ route('trade.user') }}" class="@if(isset($account)) {{ $account }} @endif">My Account</a>
                               </li>
                               @if(checkAdmin() > 0)
                               <li itemprop='name'  data-id="333" data-level="1" class="upper">

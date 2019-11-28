@@ -16,12 +16,15 @@ Route::get('/', ['as'=>'trade.home', 'uses'=>'PagesController@index']);
 Route::get('/about', ['as'=>'trade.about', 'uses'=>'PagesController@about']);
 Route::get('/services', ['as'=>'trade.services', 'uses'=>'PagesController@services']);
 Route::get('/contact', ['as'=>'trade.contact', 'uses'=>'PagesController@contact']);
+Route::get('/faqs', ['as'=>'trade.faqs', 'uses'=>'PagesController@faqs']);
+Route::get('/my/account', ['as'=>'trade.user', 'uses'=>'PagesController@user'])->middleware('auth');
+Route::get('/edit/my/account', ['as'=>'trade.user.edit', 'uses'=>'PagesController@edit_user'])->middleware('auth');
+Route::post('/edit/my/account', ['as'=>'trade.user.edit', 'uses'=>'PagesController@edit_user_post'])->middleware('auth');
 Route::get('/photo/show', ['as'=>'photo.show', 'uses'=>'PhotoController@show']);
 Route::post('/photo/show', ['as'=>'photo.store', 'uses'=>'PhotoController@store']);
 Route::get('/receipt/show', ['as'=>'receipt.show', 'uses'=>'PhotoController@receipt_show']);
 Route::post('/receipt/show', ['as'=>'receipt.show', 'uses'=>'PhotoController@receipt_store']);
 Route::post('/newsletter', 'PagesController@newsletter');
-Route::get('/faqs', ['as'=>'trade.faqs', 'uses'=>'PagesController@faqs']);
 /* admin */
 Route::group(['middleware'=>'isAdmin'], function () {
   Route::get('/dashboard', ['as'=>'trade.dashboard', 'uses'=>'Admin\DashboardController@index']);
@@ -38,8 +41,8 @@ Route::group(['middleware'=>'isAdmin'], function () {
   Route::resource('/unsubcribed', 'Admin\InActiveUserController');
   Route::resource('/imageEdit', 'Admin\ImageEditorController');
   Route::get('/all/subscriber', ['as'=>'all.subscriber', 'uses'=>'Admin\SubscriptionController@all_subscribers']);
-  Route::get('/add/subscriber/{id}', ['as'=>'add.subscriber', 'uses'=>'Admin\SubscriptionController@create']);
-  Route::post('/add/subscriber/{id}', ['as'=>'add.subscriber', 'uses'=>'Admin\SubscriptionController@add_subscriber']);
+  //Route::get('/add/subscriber/{id}', ['as'=>'add.subscriber', 'uses'=>'Admin\SubscriptionController@create']);
+  //Route::post('/add/subscriber/{id}', ['as'=>'add.subscriber', 'uses'=>'Admin\SubscriptionController@add_subscriber']);
   Route::get('/view/subscriber/{id}', ['as'=>'view.subscriber', 'uses'=>'Admin\SubscriptionController@view_subscriber']);
   Route::get('/edit/subscriber/{id}', ['as'=>'edit.subscriber', 'uses'=>'Admin\SubscriptionController@edit_subscriber']);
   Route::post('/edit/subscriber/{id}', ['as'=>'edit.subscriber', 'uses'=>'Admin\SubscriptionController@update_subscriber']);

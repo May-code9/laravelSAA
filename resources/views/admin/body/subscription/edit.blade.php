@@ -18,10 +18,11 @@ Edit | {{ $getUser->first_name }} {{ $getUser->last_name }}
 		<div class="col-md-12 stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h6 class="card-title">All Users | Edit User</h6>
+					<h6 class="card-title">Subscription | Update Subscription</h6>
 					<form action="/edit/subscriber/{{ $getUser->id }}" method="POST" enctype="multipart/form-data">
 						@csrf
 
+						@if($countUserReceipt > 0)
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
@@ -33,6 +34,7 @@ Edit | {{ $getUser->first_name }} {{ $getUser->last_name }}
 								</div>
 							</div>
 						</div>
+						@endif
 
 						<div class="row">
 							<div class="col-sm-12">
@@ -68,8 +70,12 @@ Edit | {{ $getUser->first_name }} {{ $getUser->last_name }}
 								<div class="form-group">
 									<label class="control-label">Number of Months</label>
 									<select id="timeline" class="form-control @error('timeline') is-invalid @enderror" name="timeline" required >
+										@if(is_null($getUser->timeline) == false)
 										<option selected value="{{ $getUser->timeline }}">{{ $getUser->timeline }} Month(s)</option>
 										<option disabled>--Select number of subscription months--</option>
+										@else
+										<option selected disabled>--Select number of subscription months--</option>
+										@endif
 										<option value="1">1 Month</option>
 										<option value="2">2 Months</option>
 										<option value="3">3 Months</option>
@@ -89,8 +95,12 @@ Edit | {{ $getUser->first_name }} {{ $getUser->last_name }}
 								<div class="form-group">
 									<label class="control-label">Subscription Month</label>
 									<select id="start_month" class="form-control @error('start_month') is-invalid @enderror" name="start_month" required >
+										@if(is_null($getUser->start_month) == false)
 										<option selected value="{{ $getUser->start_month }}">{{ $getUser->start_month }}</option>
 										<option disabled>--Select month to start subscription--</option>
+										@else
+										<option selected disabled>--Select month to start subscription--</option>
+										@endif
 										<option value="January">January</option>
 										<option value="February">February</option>
 										<option value="March">March</option>

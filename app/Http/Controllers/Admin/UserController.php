@@ -53,7 +53,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), $rule);
         if($validator->passes()) {
             $imageFile = $request->file('passport');
-            $imageName = $request->first_name . '_' . $request->last_name . '_' . $request->email;
+            $imageName = $request->first_name . '_' . $request->last_name . '_' . $request->email . '.'.$imageFile->getClientOriginalExtension();
 
             $destinationPath = public_path('/passports');
             Image::make($imageFile->getRealPath())->save($destinationPath.'/'.$imageName);

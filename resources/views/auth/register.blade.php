@@ -256,9 +256,9 @@
 								<div class="item_introtext">
 									<blockquote>
 										<ul>
-											<li style="list-style: decimal; text-align: left;margin-left:30px">The Subscriber shall be entitled to have one session per day commencing from 8:30 am CAT to 10am CAT having subscribed with a non-refundable subscription fee of $500 per each month.</li>
+											<li style="list-style: decimal; text-align: left;margin-left:30px">The Subscriber shall be entitled to have one session per day commencing from 8:30 am WAT to 10am WAT having subscribed with a non-refundable subscription fee of $500 per each month.</li>
 											<li style="list-style: decimal; text-align: left;margin-left:30px">A month for the purpose of this transaction and the required sessions for the Subscriber is 20 business working days and weekends are not inclusive.</li>
-											<li style="list-style: decimal; text-align: left;margin-left:30px">Subscribers shall have the prerogative or choice to subscribe for two sessions in a day, which cost $1000 and starts from 8:30 am CAT to 10am CAT and 10am CAT through to 11:30am CAT.</li>
+											<li style="list-style: decimal; text-align: left;margin-left:30px">Subscribers shall have the prerogative or choice to subscribe for two sessions in a day, which cost $1000 and starts from 8:30 am WAT to 10am WAT and 10am WAT through to 11:30am WAT.</li>
 											<li style="list-style: decimal; text-align: left;margin-left:30px">The Subscriber is "highly advised" to trade with 1% of his/her capital in order to minimize losses, though the general standard for risk management on Trading account is 2%.</li>
 											<li style="list-style: decimal; text-align: left;margin-left:30px">The management of your account as a Subscriber, is your exclusive responsibility and not that of the Provider. Your account information should be kept safe from a third party. Perfect Algorithm Academy will not ask a Subscriber for his/her trading account details. Consequently, Subscriber are to report to the management if anyone (staff) ask for the Subscriber’s Trading account details.</li>
 											<li style="list-style: decimal; text-align: left;margin-left:30px">Subscribers are only entitled to 100 non-negotiable signals in a month with exception to those who have subscribed for two sessions in a day.</li>

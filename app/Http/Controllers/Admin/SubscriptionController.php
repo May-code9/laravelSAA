@@ -93,13 +93,14 @@ class SubscriptionController extends Controller
   }
   public function edit_subscriber($id)
   {
+    $countUserReceipt = PaymentImage::where('user_id', $id)->count();
     $getPaymentReceipt = PaymentImage::where('user_id', $id)->get()->last();
 
     $getUser = Subscription::join('users', 'users.id', '=', 'subscriptions.user_id')
     ->where('users.id', $id)
     ->select('session', 'users.id', 'first_name', 'last_name', 'capital', 'timeline', 'start_month', 'subscription_cost')
     ->get()->last();
-    return view('admin.body.subscription.edit', compact('getUser', 'getPaymentReceipt'));
+    return view('admin.body.subscription.edit', compact('getUser', 'getPaymentReceipt', 'countUserReceipt'));
   }
   public function update_subscriber(Request $request, $id)
   {
@@ -137,8 +138,18 @@ class SubscriptionController extends Controller
         $destinationPath = public_path('/paymentReceipt');
         Image::make($imageFile->getRealPath())->save($destinationPath.'/'.$imageName);
 
-        $updatePaymentImage = PaymentImage::where('user_id', $id)->get()->last();
-        $updatePaymentImage->update(['image'=>$imageName]);
+        $countUserReceipt = PaymentImage::where('user_id', $id)->count();
+        if($countUserReceipt > 0) {
+          $updatePaymentImage = PaymentImage::where('user_id', $id)->get()->last();
+          $updatePaymentImage->update(['image'=>$imageName]);
+        }
+        else {
+          $uploadPaymentReceipt = new PaymentImage();
+          $uploadPaymentReceipt->user_id = $id;
+          $uploadPaymentReceipt->admin_id = Auth::id();
+          $uploadPaymentReceipt->image = $imageName;
+          $uploadPaymentReceipt->save();
+        }
       }
       return redirect('/all/subscriber')->with('success_status' ,$user->first_name . ' ' . $user->last_name . ' Subscription details updated');
     }
