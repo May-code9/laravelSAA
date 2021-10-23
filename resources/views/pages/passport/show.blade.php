@@ -24,16 +24,9 @@
 			<!-- MAIN CONTENT -->
 			<div id="t3-content" class="t3-content col-sm-12">
 
-					@if(session('success_status'))
             <div class="alert alert-success" role="alert">
-              {{ session('success_status') }}
+              {{ $info }}
             </div>
-            @endif
-            @if(session('warning_status'))
-            <div class="alert alert-warning" role="alert">
-              {{ session('warning_status') }}
-            </div>
-            @endif
 
 				<div class="page-registration page-registration__">
 					<div class="page_header">
@@ -53,6 +46,37 @@
 											<span class="invalid-feedback" role="alert">
 													<strong>{{ $message }}</strong>
 											</span>
+									@enderror
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="control-label">
+									<label id="session" for="session" class="hasPopover required" title="session" data-content="Enter your Preferable Session.">Preferable Session<span class="star">&#160;*</span></label>
+								</div>
+								<div class="controls">
+									<select id="session" class="form-control @error('session') is-invalid @enderror" name="session" value="{{ old('session') }}" required >
+										<option selected disabled>--Select--</option>
+										<option value="First">First Session ($500 per month)</option>
+										<option value="Second">Second Session ($500 per month)</option>
+										<option value="Both">Both Sessions ($1000 per month)</option>
+									</select>
+									@error('session')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+									@enderror
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="control-label">
+									<label id="capital" for="capital" class="hasPopover required" title="capital" data-content="Enter your First name.">Estimated Start Up Capital ($)<span class="star">&#160;*</span></label>
+								</div>
+								<div class="controls">
+									<input type="number" name="capital" id="capital" value="" class="required" size="30" required aria-required="true" min="1000" />
+									@error('capital')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
 									@enderror
 								</div>
 							</div>

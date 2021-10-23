@@ -3,7 +3,6 @@
 
 <!-- BREADCRUMBS -->
 <div id="t3-breadcrumbs" class="t3-breadcrumbs">
-
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
@@ -71,17 +70,9 @@
 									<a class="btn btn-primary register" href="{{ route('register') }}">Don't have an account?</a>
 								</div>
 							</div>
-							<div class="control-group remember">
-								<div class="controls">
-									<br>
-									<p>
-										<input id="remember" type="checkbox" name="remember" class="inputbox" value="yes">
-										<label for="remember">Remember me</label>
-									</p>
-								</div>
-							</div>
+
 						</fieldset>
-						<a href="#">Forgot your password?</a>
+						<a href="{{ route('password.request') }}">Forgot your password?</a>
 					</form>
 				</div>
 

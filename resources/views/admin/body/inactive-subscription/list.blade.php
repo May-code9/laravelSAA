@@ -71,7 +71,7 @@ InActive Subscribers | List
 										{{ $getUser->created_at }}
 									</td>
 									<td>
-										<a href="/add/subscriber/{{ $getUser->id }}" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="dollar-sign"></i></a>
+										<a href="/edit/subscriber/{{ $getUser->id }}" class="btn btn-warning btn-xs"><i class="link-icon" data-feather="dollar-sign"></i></a>
 									</td>
 								</tr>
 								@empty

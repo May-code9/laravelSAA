@@ -98,7 +98,7 @@
               </div>
               <div id="contact_115">
                 <form class="mod_tm_ajax_contact_form mod_tm_ajax_contact_form_ no-edit" id="contact-form_115" novalidate>
-                  <input type="hidden" id="module_id" name="module_id" value="115">
+
                   <fieldset>
                     <div class="row">
                       <div class="control control-group-input col-sm-4">
@@ -114,16 +114,6 @@
                       <div class="control control-group-input col-sm-4">
                         <div class="control">
                           <input type="text" placeholder="Phone" name="phone" id="phone_2_115" class="mod_tm_ajax_contact_form_text">
-                        </div>
-                      </div>
-                      <div class="control control-group-input col-sm-6">
-                        <div class="control">
-                          <input type="times" placeholder="Time" name="time" id="time_3_115" class="mod_tm_ajax_contact_form_times timepicker_3_115" required>
-                        </div>
-                      </div>
-                      <div class="control control-group-input col-sm-6">
-                        <div class="control">
-                          <input type="text"  placeholder="date" name="date" id="date_4_115" class="mod_tm_ajax_contact_form_date datepicker_4_115" required>
                         </div>
                       </div>
                       <div class="control control-group-input col-sm-12">

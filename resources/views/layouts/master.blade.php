@@ -44,10 +44,41 @@
   @include('partials.header.services')
   @elseif(Route::currentRouteName() == 'trade.contact')
   @include('partials.header.contact')
+  @elseif(Route::currentRouteName() == 'trade.faqs')
+  @include('partials.header.faqs')
   @elseif(Route::currentRouteName() == 'login')
   @include('partials.header.login')
-  @elseif(Route::currentRouteName() == 'register' || Route::currentRouteName() == 'photo.show' || Route::currentRouteName() == 'receipt.show')
+  @elseif(Route::currentRouteName() == 'register' || Route::currentRouteName() == 'photo.show'
+  || Route::currentRouteName() == 'receipt.show' || Route::currentRouteName() == 'trade.user')
   @include('partials.header.register')
+  @else
+  @include('partials.header.index')
+  @endif
+
+  @if(Route::currentRouteName() == 'register')
+  <script type="text/javascript">
+  jQuery(function ($) {
+    $(document).ready(function () {
+        $('#regButton').attr('disabled', true);
+        $('#regButton').css('background-color', '#474747');
+        $('#termsnagreement').hide();
+
+        $('#jform_profile_tos0').on('click', function () {
+            $('#regButton').attr('disabled', false);
+            $('#regButton').css('background-color', '#948a05');
+        })
+
+        $('#jform_profile_tos1').on('click', function () {
+          $('#regButton').attr('disabled', true);
+          $('#regButton').css('background-color', '#474747');
+        })
+
+        $('#readTnA').on('click', function () {
+          $('#termsnagreement').slideDown(1000);
+        })
+    })
+  })
+  </script>
   @endif
   <link href="{{ asset('favicon.png') }}" rel="shortcut icon" />
   <style media="screen">
@@ -74,7 +105,7 @@
       var height = mapper * 0.6;
       $('.resetSize').css({'width': mapper + 'px', 'height': height + 'px'});
 
-      var percentage = downWidth - (130 * (upperCount + 1));
+      var percentage = downWidth - (135 * (upperCount + 1));
 
       percentage = (percentage/downWidth) * 100;
 
@@ -193,7 +224,7 @@
                               </li>
                               @endif
                               <li itemprop='name'  data-id="331" data-level="1" class="upper">
-                                <a href="javascript:;" class="">{{ Auth::user()->first_name }}</a>
+                                <a href="{{ route('trade.user') }}" class="@if(isset($account)) {{ $account }} @endif">My Account</a>
                               </li>
                               @if(checkAdmin() > 0)
                               <li itemprop='name'  data-id="333" data-level="1" class="upper">

@@ -18,10 +18,10 @@ class CreateOldSubscriptionsTable extends Migration
           $table->unsignedBigInteger('user_id');
           $table->string('session');
           $table->integer('capital');
-          $table->integer('timeline');
-          $table->string('start_month');
-          $table->date('end_month');
-          $table->integer('subscription_cost');
+          $table->integer('timeline')->nullable();
+          $table->string('start_month')->nullable();
+          $table->date('end_month')->nullable();
+          $table->integer('subscription_cost')->nullable();
           $table->timestamps();
 
           $table->foreign('user_id')->references('id')->on('users');

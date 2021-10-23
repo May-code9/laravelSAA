@@ -96,7 +96,7 @@ Add | User
 								</div>
 							</div><!-- Col -->
 						</div>
-						<input type="submit" class="btn btn-primary submit" value="Submit">
+						<button type="submit" class="btn btn-primary submit">Submit</button>
 						<a href="{{ route('all.users') }}" class="btn btn-primary submit" style="float: right">Back</a>
 					</form>
 				</div>

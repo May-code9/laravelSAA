@@ -77,7 +77,7 @@
                   <p>We do not only create a learning technology at Perfect Algorithm Academy Limited, we ensure the success of our subscribers by reducing their risk of failure. Having navigated the tides of market volatility over time, we have found and back tested what works over and again.</p>
                   <p>Our productized trading signal STTWATS ( Start Trading Today Without A Trading Skill) will enable subscribers start increasing their Trading account with profit on the very first day of trading as we analyse the market for high probability outcomes. We believe that everyone who subscribes to our trading signals automatically stands 80% chance of being in profit daily.</p>
                   <p>
-                    We have administratively segmented our trading signals into two sessions on week days (Monday to Friday) from 8:30am CAT to 10:00am CAT and 10:00am CAT to 11:30am CAT. See Terms and Conditions of use for proper guide on how to subscribe and benefit from our signals.
+                    We have administratively segmented our trading signals into two sessions on week days (Monday to Friday) from 8:30am WAT to 10:00am WAT and 10:00am WAT to 11:30am WAT. See Terms and Conditions of use for proper guide on how to subscribe and benefit from our signals.
                   </p>
                 </div>
                 <!-- info BOTTOM -->
